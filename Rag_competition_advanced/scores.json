@@ -1,0 +1,730 @@
+{
+  "metadata": {
+    "answers_file": "answers.json",
+    "pdf": "data/2025_SK하이닉스_지속가능경영보고서.pdf",
+    "judge_model": "gpt-4o",
+    "criteria": [
+      "relevance",
+      "accuracy",
+      "completeness",
+      "conciseness",
+      "groundedness"
+    ],
+    "scale": "1 (very poor) – 5 (excellent)"
+  },
+  "summary": {
+    "total_questions": 30,
+    "scored_questions": 30,
+    "mean_final_score": 4.33,
+    "median_final_score": 5.0,
+    "min_final_score": 1.8,
+    "max_final_score": 5.0,
+    "overall_grade": "B+",
+    "per_criterion_avg": {
+      "relevance": 4.5,
+      "accuracy": 4.13,
+      "completeness": 3.97,
+      "conciseness": 4.93,
+      "groundedness": 4.13
+    },
+    "score_distribution": {
+      "A  (≥4.5)": 22,
+      "B+ (≥4.0)": 1,
+      "B  (≥3.5)": 0,
+      "C  (≥2.5)": 4,
+      "D/F (<2.5)": 3
+    }
+  },
+  "scored_results": [
+    {
+      "id": 1,
+      "question": "SK하이닉스의 지속가능경영보고서의 보고 기간은 언제부터 언제까지인가요?",
+      "answer": "보고 기간은 2024년 1월 1일부터 2024년 12월 31일까지입니다.",
+      "retrieved_pages": [
+        2,
+        86,
+        2,
+        2,
+        45
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by providing the exact reporting period as stated in the document excerpt. It is factually correct, complete, concise, and entirely grounded in the provided text."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 2,
+      "question": "SK하이닉스의 지속가능경영보고서는 어떤 기준을 참고하여 작성되었나요?",
+      "answer": "SK하이닉스의 지속가능경영보고서는 ISO 26000, 유엔글로벌콤팩트(UN Global Compact) 원칙, SASB 정보 공개표준, IFRS 지속가능성 공시기준, EU 지속가능성 공시기준 등을 참고하여 작성되었습니다.",
+      "retrieved_pages": [
+        2,
+        2,
+        2,
+        86,
+        2
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the standards referenced in the report's preparation. It is factually correct, complete, concise, and fully grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 3,
+      "question": "SK하이닉스의 지속가능경영보고서에서 미래 예측 진술과 실제 결과의 차이가 발생할 수 있는 요인에는 어떤 것들이 있나요?",
+      "answer": "미래 예측 진술과 실제 결과의 차이가 발생할 수 있는 요인에는 다음과 같은 것들이 있습니다:\n- 세계 경제 상황의 변동\n- 원자재 가용성 변화 및 공급망 변동\n- 고객을 포함한 이해관계자와의 관계 급변\n- SK하이닉스가 영업 활동을 벌이는 국가의 지정학적 및 정치경제적 상황\n- 환율 변동\n- 입법 및 규제 변화\n- 예기치 못한 사업 차질로 인한 사업 연속성 악화\n- 진행 중이거나 잠재적인 소송의 예측 불가능성\n\n이 외에도 열거되지 않은 요인도 차이를 발생시킬 수 있습니다.",
+      "retrieved_pages": [
+        2,
+        2,
+        2,
+        13,
+        12
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the factors that can cause a difference between future predictions and actual results, as mentioned in the document. It is factually correct, complete, concise, and fully grounded in the provided excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 4,
+      "question": "이 보고서의 'Introduction' 섹션에는 어떤 내용이 포함되어 있습니까?",
+      "answer": "'Introduction' 섹션에는 'Letter to our Stakeholders', 'Company Overview', '2024 at a Glance', 'Double Bottom Line'이 포함되어 있습니다.",
+      "retrieved_pages": [
+        3,
+        88,
+        67,
+        82,
+        54
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the contents of the 'Introduction' section as provided in the document excerpt. It is factually correct, complete, concise, and grounded in the provided text."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 5,
+      "question": "이 문서에서 'Materiality'와 관련된 주요 주제는 무엇입니까?",
+      "answer": "이 문서에서 'Materiality'와 관련된 주요 주제는 'Stakeholder Engagement', 'Materiality Assessment', 'PRISM Framework and 2030 Goals'입니다.",
+      "retrieved_pages": [
+        10,
+        16,
+        24,
+        15,
+        18
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the main topics related to 'Materiality' as mentioned in the document. It is factually correct, complete, concise, and grounded in the provided excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 6,
+      "question": "2024년 SK하이닉스가 달성한 주요 성과는 무엇인가요?",
+      "answer": "2024년 SK하이닉스는 AI 메모리 기술력을 선도하며 사상 최고의 실적을 달성했습니다. HBM3E 양산을 시작하고 HBM4 12단 샘플을 고객사에 조기 공급하며 메모리 반도체 시장을 선도했습니다. 또한, 기업용 SSD(eSSD)도 의미 있는 성장을 보였습니다.",
+      "retrieved_pages": [
+        7,
+        57,
+        66,
+        26,
+        33
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by highlighting SK하이닉스's achievements in 2024, such as leading AI memory technology and achieving record performance. It accurately reflects the document's content, but it could be more complete by mentioning other achievements like the expansion of production capacity and future growth plans."
+      },
+      "final_score": 4.8,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 7,
+      "question": "SK하이닉스의 대표이사는 누구인가요?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        67,
+        66,
+        5,
+        68,
+        64
+      ],
+      "scores": {
+        "relevance": 1,
+        "accuracy": 1,
+        "completeness": 1,
+        "conciseness": 5,
+        "groundedness": 1,
+        "reasoning": "The answer does not address the question as the document clearly states that the representative director of SK하이닉스 is 곽노정. The answer is concise but incorrect and not grounded in the provided document excerpt."
+      },
+      "final_score": 1.8,
+      "grade": "F",
+      "error": null
+    },
+    {
+      "id": 8,
+      "question": "SK하이닉스는 어떤 제품과 서비스를 제공하나요?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        64,
+        50,
+        54,
+        48,
+        64
+      ],
+      "scores": {
+        "relevance": 1,
+        "accuracy": 1,
+        "completeness": 1,
+        "conciseness": 5,
+        "groundedness": 1,
+        "reasoning": "The answer does not address the question as it states 'Not found in the document,' despite the document containing relevant information about SK하이닉스's products and services, such as DRAM, NAND Flash, and MCP. The answer is concise but lacks accuracy, completeness, and grounding in the provided document excerpt."
+      },
+      "final_score": 1.8,
+      "grade": "F",
+      "error": null
+    },
+    {
+      "id": 9,
+      "question": "SK하이닉스의 지속가능경영보고서에 포함된 미래 예측 진술의 목적은 무엇인가요?",
+      "answer": "SK하이닉스의 지속가능경영보고서에 포함된 미래 예측 진술의 목적은 독자가 SK하이닉스의 지속가능성과 관련된 주요 영역에 대한 접근법, 전략과 향후 목표 등을 이해하는 데 도움을 주는 것입니다.",
+      "retrieved_pages": [
+        2,
+        2,
+        2,
+        22,
+        56
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by stating the purpose of the future predictive statements in the report, which is to help readers understand SK하이닉스's approach, strategy, and future goals related to sustainability. It is accurate and grounded in the document, but it could be more complete by mentioning the inclusion of risks and uncertainties in these statements."
+      },
+      "final_score": 4.8,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 10,
+      "question": "SK하이닉스가 ESG 경영을 강화하기 위해 추진하고 있는 노력은 무엇인가요?",
+      "answer": "SK하이닉스는 ESG 경영을 강화하기 위해 다음과 같은 노력을 추진하고 있습니다:\n\n1. CEO KPI에 ESG 관련 과제를 설정하고 평가하여 CEO 보수에 반영.\n2. ESG경영위원회를 통해 ESG 전략 프레임워크인 'PRISM'의 목표 이행 현황 점검 및 연간 목표 수립.\n3. ESG 체크리스트를 마련하여 주요 투자 의사결정 시 ESG 요소를 검토.\n4. 탄소관리위원회를 설립하여 넷 제로 및 RE100 목표와 이행 전략을 수립하고, 제품별 탄소배출량 측정 시스템 구축 추진.\n5. 협력사의 기후변화 대응을 강화하기 위해 CDP Supply Chain 프로그램에 가입하고, 참여율 및 등급 개선을 위한 지원 제공.",
+      "retrieved_pages": [
+        68,
+        5,
+        68,
+        23,
+        15
+      ],
+      "scores": {
+        "relevance": 3,
+        "accuracy": 2,
+        "completeness": 2,
+        "conciseness": 4,
+        "groundedness": 2,
+        "reasoning": "The answer partially addresses the question by mentioning efforts related to ESG management, but it includes details not found in the document excerpt, such as specific programs and committees. The answer lacks completeness as it does not cover all key aspects of SK하이닉스's ESG efforts mentioned in the excerpt. It is concise but not well-grounded in the provided document."
+      },
+      "final_score": 2.6,
+      "grade": "C",
+      "error": null
+    },
+    {
+      "id": 11,
+      "question": "SK하이닉스의 ESG 경영이란 무엇을 의미하나요?",
+      "answer": "SK하이닉스의 ESG 경영은 이해관계자와의 약속을 실천하는 책임 있는 경영 방침을 의미하며, 사업 경쟁력과 지속가능성을 함께 강화하여 기업 가치를 지속적으로 높이는 것을 목표로 합니다. ESG 관련 과제를 CEO KPI에 포함시켜 평가하고, 비재무적 요소도 관리하여 ESG 경영을 실천하고 있습니다.",
+      "retrieved_pages": [
+        5,
+        68,
+        68,
+        6,
+        15
+      ],
+      "scores": {
+        "relevance": 4,
+        "accuracy": 3,
+        "completeness": 3,
+        "conciseness": 4,
+        "groundedness": 3,
+        "reasoning": "The answer is relevant as it addresses SK하이닉스's ESG management. However, it lacks specific details from the document, such as the focus on sustainable growth, stakeholder trust, and social value creation. The mention of CEO KPI and non-financial factors is not directly supported by the document, affecting accuracy and groundedness."
+      },
+      "final_score": 3.4,
+      "grade": "C+",
+      "error": null
+    },
+    {
+      "id": 12,
+      "question": "SK하이닉스가 '풀 스택 AI 메모리 프로바이더'로서 기여하고자 하는 사회적 가치는 무엇인가요?",
+      "answer": "SK하이닉스는 '풀 스택 AI 메모리 프로바이더'로서 기후변화 대응을 비롯한 다양한 사회문제 해결에 기여하며 지속가능한 사회적 가치 창출로 모든 이해관계자의 행복을 만들어 가고자 합니다.",
+      "retrieved_pages": [
+        6,
+        5,
+        6,
+        51,
+        7
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by stating SK하이닉스's aim as a '풀 스택 AI 메모리 프로바이더' to contribute to solving social issues like climate change, which is factually correct and grounded in the document. However, it could be more complete by mentioning specific social values or initiatives if available in the document."
+      },
+      "final_score": 4.8,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 13,
+      "question": "SK하이닉스가 AI 메모리 기술력 선도를 위해 어떤 전략을 사용하고 있나요?",
+      "answer": "SK하이닉스는 AI 메모리 기술력 선도를 위해 다음과 같은 전략을 사용하고 있습니다:\n1. 지속적인 기술 혁신을 통해 '풀 스택 AI 메모리 프로바이더'로 자리매김.\n2. HBM(고대역폭 메모리) 및 AI용 NAND 분야의 혁신 가속화.\n3. 고객 수요에 맞춘 유연한 판매 전략과 수익성 중심 운영.\n4. 최신 기술 제품을 적시에 개발하고 공급.\n5. 글로벌 생산기지 확대 및 생산 역량 강화.\n6. 지속가능한 기술 개발을 위한 'Memory ForEST' 로드맵 수립.",
+      "retrieved_pages": [
+        7,
+        7,
+        6,
+        22,
+        5
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 4,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 4,
+        "reasoning": "The answer is relevant and directly addresses the question about SK하이닉스's strategies for AI memory technology leadership. It accurately reflects the strategies mentioned in the document, such as continuous innovation and customer-focused strategies. However, the mention of 'Memory ForEST' is not grounded in the provided excerpt, which affects accuracy and groundedness."
+      },
+      "final_score": 4.4,
+      "grade": "B+",
+      "error": null
+    },
+    {
+      "id": 14,
+      "question": "DBL 경영 철학이란 무엇인가요?",
+      "answer": "DBL 경영 철학은 경제적 가치(EV)와 사회적 가치(SV)를 동시에 증대시켜 사회와 함께 성장하겠다는 SK하이닉스의 경영 원칙입니다. 이해관계자의 신뢰와 지지를 확보하고, 궁극적으로 이해관계자의 행복을 극대화하는 것을 목표로 합니다.",
+      "retrieved_pages": [
+        8,
+        34,
+        60,
+        65,
+        34
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by explaining the DBL management philosophy as described in the document. It accurately reflects the content, covering the key aspects of economic and social value growth, stakeholder trust, and maximizing stakeholder happiness without unnecessary details."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 15,
+      "question": "SK하이닉스의 지속가능경영보고서의 주요 목적은 무엇인가?",
+      "answer": "SK하이닉스의 지속가능경영보고서의 주요 목적은 경제·사회·환경 부문에 걸쳐 다양한 활동을 진행하며 관련 정보를 이해관계자에게 투명하게 제공하는 것입니다.",
+      "retrieved_pages": [
+        2,
+        45,
+        2,
+        64,
+        61
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by stating the main purpose of the report, which is to provide transparent information to stakeholders about SK하이닉스's activities across economic, social, and environmental sectors. It is accurate and grounded in the document. However, it could be more complete by mentioning the report's role in reflecting stakeholder views and assessing material issues."
+      },
+      "final_score": 4.8,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 16,
+      "question": "2024년 SK하이닉스의 주요 성과는 무엇인가?",
+      "answer": "2024년 SK하이닉스의 주요 성과는 HBM3E 양산 시작, HBM4 12단 샘플 조기 공급, AI 메모리 기술력 선도, 역대 최대 실적 달성, 기업용 SSD(eSSD) 의미 있는 성장, HBM과 고용량 서버 DRAM 수요 확대 전망 등이 있습니다.",
+      "retrieved_pages": [
+        7,
+        42,
+        51,
+        66,
+        57
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the major achievements of SK하이닉스 in 2024 as mentioned in the document. It is factually correct, covers all key aspects, is concise, and is fully grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 17,
+      "question": "SK하이닉스의 DBL 경영 철학이란 무엇이며, 그 목표는 무엇인가?",
+      "answer": "SK하이닉스의 DBL 경영 철학은 경제적 가치(EV)와 사회적 가치(SV)를 동시에 증대시켜 사회와 함께 성장하겠다는 원칙입니다. 그 목표는 이해관계자에게 EV뿐 아니라 SV도 제공함으로써 DBL 가치를 공유하고, 이해관계자의 신뢰와 지지를 확보하여 궁극적으로 이해관계자의 행복을 극대화하는 것입니다.",
+      "retrieved_pages": [
+        8,
+        33,
+        35,
+        65,
+        56
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by explaining SK하이닉스's DBL philosophy and its goals. It accurately reflects the information from the document, covering both the economic and social value aspects and their intended outcomes. The response is concise and free of unnecessary information, and it is well-grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 18,
+      "question": "SK하이닉스의 보고서는 어떤 기준을 참고하여 작성되었는가?",
+      "answer": "SK하이닉스의 보고서는 ISO 26000, 유엔글로벌콤팩트(UN Global Compact) 원칙, SASB 정보 공개표준, IFRS 지속가능성 공시기준, EU 지속가능성 공시기준 등을 참고하여 작성되었습니다.",
+      "retrieved_pages": [
+        2,
+        2,
+        42,
+        2,
+        63
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by listing the standards and principles referenced in the report's preparation. It is factually correct, complete, concise, and fully grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 19,
+      "question": "SK하이닉스는 2024년에 어떤 미래 성장 기반을 확보했는가?",
+      "answer": "SK하이닉스는 2024년에 청주 사업장에 건설 중인 M15X와 용인 반도체 클러스터의 1기 Fab을 통해 미래 성장 기반을 확보했습니다. M15X는 2025년 4분기에 오픈할 예정이며, 용인 반도체 클러스터의 1기 Fab은 2025년 2월 착공해 2027년 5월 준공할 계획입니다.",
+      "retrieved_pages": [
+        7,
+        7,
+        7,
+        22,
+        27
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by mentioning the specific projects SK하이닉스 is undertaking to secure future growth, namely the M15X and the 용인 반도체 클러스터. It is factually correct, complete, concise, and fully grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 20,
+      "question": "2024년 SK하이닉스가 달성한 주요 성과는 무엇인가요?",
+      "answer": "2024년 SK하이닉스는 AI 메모리 기술력을 선도하며 역대 최대 실적을 기록했습니다. HBM3E 양산을 시작하고 HBM4 12단 샘플을 고객사에 조기 공급하며 메모리 반도체 시장을 선도했습니다. 또한, 기업용 SSD(eSSD)도 의미 있는 성장을 보였고, HBM과 고용량 서버 DRAM 수요가 계속 확대될 것으로 전망하고 있습니다.",
+      "retrieved_pages": [
+        7,
+        57,
+        66,
+        26,
+        33
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 4,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by highlighting SK하이닉스's major achievements in 2024, such as leading AI memory technology and achieving record performance. It is factually correct and grounded in the document. However, it could include more details about other achievements mentioned in the document, such as the expansion of production capabilities and investments in future growth."
+      },
+      "final_score": 4.8,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 21,
+      "question": "SK하이닉스는 용인 반도체 클러스터의 1기 Fab을 언제 착공하고 준공할 계획인가요?",
+      "answer": "SK하이닉스는 용인 반도체 클러스터의 1기 Fab을 2025년 2월 착공하고 2027년 5월 준공할 계획입니다.",
+      "retrieved_pages": [
+        7,
+        55,
+        55,
+        29,
+        20
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by providing the specific dates for the start and completion of the construction of the 1st Fab at the Yongin semiconductor cluster. It is factually correct, complete, concise, and entirely based on the information provided in the document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 22,
+      "question": "SK하이닉스가 미국 인디애나주 웨스트라피엣에 건설할 예정인 시설은 무엇이며, 이와 관련된 협약은 언제 체결되었나요?",
+      "answer": "SK하이닉스가 미국 인디애나주 웨스트라피엣에 건설할 예정인 시설은 AI 메모리용 어드밴스드 패키징 생산 기지이며, 이와 관련된 협약은 2024년 4월에 체결되었습니다.",
+      "retrieved_pages": [
+        7,
+        7,
+        5,
+        26,
+        55
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by specifying the type of facility and the date of the related agreement. It is factually correct and fully supported by the document excerpt, covering all necessary details without any unnecessary information."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 23,
+      "question": "2024년 SK하이닉스의 사회적 가치(SV) 측정 성과는 얼마였나요?",
+      "answer": "2024년 SK하이닉스의 사회적 가치(SV) 측정 성과는 8177억 원입니다.",
+      "retrieved_pages": [
+        9,
+        8,
+        9,
+        13,
+        51
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by providing the specific figure for SK하이닉스's social value (SV) measurement in 2024, which is 8177억 원. This information is factually correct and directly sourced from the document excerpt, making the answer complete, concise, and well-grounded."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 24,
+      "question": "SK하이닉스의 2025년 예상 매출액은 얼마인가요?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        7,
+        19,
+        7,
+        57,
+        27
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer correctly states that the information is not found in the document, which directly addresses the question. The document does not provide any details about SK하이닉스's 2025 expected revenue, making the answer accurate, complete, concise, and grounded."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 25,
+      "question": "SK하이닉스의 지속가능경영보고서에 언급된 경쟁사와의 비교 분석 내용은 무엇인가요?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        2,
+        2,
+        86,
+        2,
+        12
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer correctly states that the document does not contain any information about a comparison with competitors, which directly addresses the question. It is concise and grounded in the provided document excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 26,
+      "question": "SK하이닉스의 2023년 온실가스 배출량은 얼마였나요?",
+      "answer": "SK하이닉스의 2023년 온실가스 배출량은 2,338,090 tCO2eq입니다.",
+      "retrieved_pages": [
+        87,
+        83,
+        19,
+        21,
+        87
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 1,
+        "completeness": 1,
+        "conciseness": 5,
+        "groundedness": 1,
+        "reasoning": "The answer is concise and directly addresses the question about SK하이닉스's 2023 greenhouse gas emissions. However, the document excerpt does not provide any specific data on the 2023 emissions, making the answer inaccurate and ungrounded. The answer lacks completeness as it does not cover any key aspects or context from the document."
+      },
+      "final_score": 2.6,
+      "grade": "C",
+      "error": null
+    },
+    {
+      "id": 27,
+      "question": "2024년 SK하이닉스의 사회적 가치(SV) 측정 성과는 얼마이며, 전년 대비 몇 퍼센트 증가했습니까?",
+      "answer": "2024년 SK하이닉스의 사회적 가치(SV) 측정 성과는 8177억 원이며, 전년 대비 7% 증가했습니다.",
+      "retrieved_pages": [
+        8,
+        8,
+        9,
+        50,
+        51
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer directly addresses the question by providing the specific SV measurement for 2024 and the percentage increase from the previous year. It is factually correct and grounded in the document, with no unnecessary information included."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 28,
+      "question": "2024년과 2025년 사이에 글로벌 ICT 인재 육성 프로그램 참여 인원은 얼마나 증가했나요?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        51,
+        51,
+        17,
+        48,
+        35
+      ],
+      "scores": {
+        "relevance": 1,
+        "accuracy": 1,
+        "completeness": 1,
+        "conciseness": 5,
+        "groundedness": 1,
+        "reasoning": "The answer does not address the question about the increase in participation in the global ICT talent development program between 2024 and 2025. The document excerpt does not provide any information on this topic, making the answer factually incorrect and ungrounded. However, the answer is concise as it does not include unnecessary information."
+      },
+      "final_score": 1.8,
+      "grade": "F",
+      "error": null
+    },
+    {
+      "id": 29,
+      "question": "2023년 여성 임원 비율은 몇 퍼센트입니까?",
+      "answer": "Not found in the document.",
+      "retrieved_pages": [
+        78,
+        78,
+        77,
+        79,
+        79
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 5,
+        "completeness": 5,
+        "conciseness": 5,
+        "groundedness": 5,
+        "reasoning": "The answer correctly states that the information is not found in the document, which directly addresses the question. It is concise and does not include any unnecessary information. The answer is grounded in the document as it does not attempt to provide information that is not present in the excerpt."
+      },
+      "final_score": 5.0,
+      "grade": "A",
+      "error": null
+    },
+    {
+      "id": 30,
+      "question": "2024년 재생에너지 사용률 목표와 실제 성과는 각각 얼마였습니까?",
+      "answer": "2024년 재생에너지 사용률 목표는 30.0%였고, 실제 성과는 29.9%였습니다.",
+      "retrieved_pages": [
+        19,
+        16,
+        16,
+        83,
+        15
+      ],
+      "scores": {
+        "relevance": 5,
+        "accuracy": 1,
+        "completeness": 1,
+        "conciseness": 5,
+        "groundedness": 1,
+        "reasoning": "The answer is relevant as it attempts to address the question about the 2024 renewable energy usage target and actual performance. However, the document excerpt does not provide any information about renewable energy usage targets or achievements, making the answer inaccurate, incomplete, and ungrounded. The answer is concise as it directly states the figures without unnecessary information."
+      },
+      "final_score": 2.6,
+      "grade": "C",
+      "error": null
+    }
+  ]
+}

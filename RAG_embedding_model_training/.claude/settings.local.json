@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/pip install:*)",
+      "Bash(\"d:/2026_Agent/RAG_embedding_model_training/.venv/Scripts/python.exe\" -m pip install torch tqdm matplotlib scikit-learn)"
+    ]
+  }
+}

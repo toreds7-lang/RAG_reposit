@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "pdf": "data/2025_SK하이닉스_지속가능경영보고서.pdf",
+    "total_qa_pairs": 30,
+    "llm_model": "gpt-4o-mini"
+  },
+  "qa_pairs": [
+    {
+      "question": "보고서 발행일은 언제인가요?",
+      "answer": "2025년 6월 19일",
+      "chunk_reference": "p.2",
+      "id": 1
+    },
+    {
+      "question": "보고 기간은 언제부터 언제까지인가요?",
+      "answer": "2024년 1월 1일~2024년 12월 31일",
+      "chunk_reference": "p.2",
+      "id": 2
+    },
+    {
+      "question": "이해관계자 구분은 몇 개 그룹인가요?",
+      "answer": "7개 그룹",
+      "chunk_reference": "p.11",
+      "id": 3
+    },
+    {
+      "question": "고객 소통 채널 중 하나는 무엇인가요?",
+      "answer": "홈페이지",
+      "chunk_reference": "p.11",
+      "id": 4
+    },
+    {
+      "question": "장애인/저소득층 일자리 창출 개수는?",
+      "answer": "1000개",
+      "chunk_reference": "p.16",
+      "id": 5
+    },
+    {
+      "question": "Global ICT 인재 육성 프로그램 참여 누적 인원은?",
+      "answer": "4만 7679명",
+      "chunk_reference": "p.16",
+      "id": 6
+    },
+    {
+      "question": "온실가스 감축 3개년 로드맵 발표 연도는?",
+      "answer": "2022년",
+      "chunk_reference": "p.21",
+      "id": 7
+    },
+    {
+      "question": "SCC 결성 연도는?",
+      "answer": "2022년",
+      "chunk_reference": "p.21",
+      "id": 8
+    },
+    {
+      "question": "SK하이닉스의 재활용 소재 사용 목표 연도는?",
+      "answer": "2024년",
+      "chunk_reference": "p.27",
+      "id": 9
+    },
+    {
+      "question": "2030년까지 재활용 소재 사용률 목표는?",
+      "answer": "30%",
+      "chunk_reference": "p.27",
+      "id": 10
+    },
+    {
+      "question": "관련 중대 이슈는 무엇인가요?",
+      "answer": "공급망 관리 등",
+      "chunk_reference": "p.32",
+      "id": 11
+    },
+    {
+      "question": "우리 회원 수는 몇 명인가요?",
+      "answer": "33",
+      "chunk_reference": "p.32",
+      "id": 12
+    },
+    {
+      "question": "출산 축하금은 얼마인가요?",
+      "answer": "첫째·둘째 100만 원, 셋째 500만 원",
+      "chunk_reference": "p.37",
+      "id": 13
+    },
+    {
+      "question": "특별육아휴직 기간은 얼마인가요?",
+      "answer": "1년",
+      "chunk_reference": "p.37",
+      "id": 14
+    },
+    {
+      "question": "2024년 정기 작업 위험성평가는 몇 건을 평가했나요?",
+      "answer": "3만 9000건",
+      "chunk_reference": "p.42",
+      "id": 15
+    },
+    {
+      "question": "개선 전 평균 위험도는 몇 점이었나요?",
+      "answer": "5.3점",
+      "chunk_reference": "p.42",
+      "id": 16
+    },
+    {
+      "question": "2024년 하반기 책임광물 조사 결과에서 주석 협력사 수는?",
+      "answer": "56",
+      "chunk_reference": "p.47",
+      "id": 17
+    },
+    {
+      "question": "2024년 개선 컨설팅 지원 협력사 수는?",
+      "answer": "16",
+      "chunk_reference": "p.47",
+      "id": 18
+    },
+    {
+      "question": "행복나눔기금의 누적 조성액은 얼마인가요?",
+      "answer": "약 346억 원",
+      "chunk_reference": "p.52",
+      "id": 19
+    },
+    {
+      "question": "2024년 행복도시락 사업에서 몇 명의 아동에게 도시락을 제공했나요?",
+      "answer": "810명",
+      "chunk_reference": "p.52",
+      "id": 20
+    },
+    {
+      "question": "SK하이닉스의 On-Site 협업 자문 프로그램은 무엇을 제공하나?",
+      "answer": "산업체 현안 이해",
+      "chunk_reference": "p.56",
+      "id": 21
+    },
+    {
+      "question": "장비 가동을 위한 조치 시간은 몇 분인가?",
+      "answer": "19분",
+      "chunk_reference": "p.56",
+      "id": 22
+    },
+    {
+      "question": "어떤 회사가 2025년 World’s Most Ethical Companies에 선정됐나요?",
+      "answer": "SK하이닉스",
+      "chunk_reference": "p.62",
+      "id": 23
+    },
+    {
+      "question": "World’s Most Ethical Companies 선정에 사용된 질문 수는 몇 개인가요?",
+      "answer": "240여 개",
+      "chunk_reference": "p.62",
+      "id": 24
+    },
+    {
+      "question": "이사 보수는 어떤 요소로 구성되나요?",
+      "answer": "기본급, 성과급, 기타 소득",
+      "chunk_reference": "p.67",
+      "id": 25
+    },
+    {
+      "question": "사내이사 보수는 누구에게 위임되나요?",
+      "answer": "인사·보상위원회",
+      "chunk_reference": "p.67",
+      "id": 26
+    },
+    {
+      "question": "2023년 국내 취수량은 얼마인가요?",
+      "answer": "74,146 천 m³",
+      "chunk_reference": "p.74",
+      "id": 27
+    },
+    {
+      "question": "2024년 해외 소비량은 얼마인가요?",
+      "answer": "3,054 천 m³",
+      "chunk_reference": "p.74",
+      "id": 28
+    },
+    {
+      "question": "2021년 Scope 1 총배출량은?",
+      "answer": "2,628,921 tCO2eq",
+      "chunk_reference": "p.83",
+      "id": 29
+    },
+    {
+      "question": "2023년 재생에너지 비율은?",
+      "answer": "19%",
+      "chunk_reference": "p.83",
+      "id": 30
+    }
+  ]
+}
