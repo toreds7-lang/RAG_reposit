@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+  </style>
+</head>
+<body>
+<script src="https://unpkg.com/streamlit-component-lib@2.0.0/dist/streamlit-component-lib.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const OVERLAY_ID    = "__pdf_drop_overlay__";
+  const ACCEPTED_MIME = "application/pdf";
+
+  // Same-origin access to parent document (Streamlit runs everything on localhost)
+  let parentDoc;
+  try {
+    parentDoc = window.parent.document;
+  } catch (e) {
+    console.warn("pdf_dropzone: cannot access parent document", e);
+    Streamlit.setComponentValue(null);
+    return;
+  }
+
+  // ── Overlay helpers ──────────────────────────────────────────────────────────
+  function showOverlay() {
+    if (parentDoc.getElementById(OVERLAY_ID)) return;
+    const el = parentDoc.createElement("div");
+    el.id = OVERLAY_ID;
+    Object.assign(el.style, {
+      position:       "fixed",
+      inset:          "0",
+      zIndex:         "999999",
+      background:     "rgba(30, 90, 200, 0.15)",
+      border:         "4px dashed rgba(30, 90, 200, 0.65)",
+      boxSizing:      "border-box",
+      display:        "flex",
+      alignItems:     "center",
+      justifyContent: "center",
+      pointerEvents:  "none",
+    });
+    const label = parentDoc.createElement("p");
+    label.textContent = "Drop PDF to embed in RAG";
+    Object.assign(label.style, {
+      color:         "rgba(30, 90, 200, 0.85)",
+      fontSize:      "2rem",
+      fontWeight:    "700",
+      fontFamily:    "sans-serif",
+      pointerEvents: "none",
+      background:    "rgba(255,255,255,0.85)",
+      padding:       "0.6rem 1.4rem",
+      borderRadius:  "0.5rem",
+    });
+    el.appendChild(label);
+    parentDoc.body.appendChild(el);
+  }
+
+  function hideOverlay() {
+    const el = parentDoc.getElementById(OVERLAY_ID);
+    if (el) el.remove();
+  }
+
+  // ── Drag counter (prevents flicker when crossing child elements) ─────────────
+  let dragDepth = 0;
+
+  function onDragEnter(e) {
+    const hasFile = Array.from(e.dataTransfer.items || []).some(
+      (item) => item.kind === "file"
+    );
+    if (!hasFile) return;
+    dragDepth++;
+    if (dragDepth === 1) showOverlay();
+  }
+
+  function onDragLeave() {
+    dragDepth--;
+    if (dragDepth <= 0) {
+      dragDepth = 0;
+      hideOverlay();
+    }
+  }
+
+  function onDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+  }
+
+  function onDrop(e) {
+    e.preventDefault();
+    dragDepth = 0;
+    hideOverlay();
+
+    const files = Array.from(e.dataTransfer.files);
+    const pdfs  = files.filter(
+      (f) => f.type === ACCEPTED_MIME || f.name.toLowerCase().endsWith(".pdf")
+    );
+
+    if (pdfs.length === 0) {
+      Streamlit.setComponentValue({
+        error:         "not_pdf",
+        dropped_types: files.map((f) => f.type),
+      });
+      return;
+    }
+
+    // Process first PDF only — one at a time is safe with the RAG pipeline
+    const file   = pdfs[0];
+    const reader = new FileReader();
+
+    reader.onload = function (ev) {
+      // ArrayBuffer → base64 string
+      const bytes  = new Uint8Array(ev.target.result);
+      let binary   = "";
+      for (let i = 0; i < bytes.byteLength; i++) {
+        binary += String.fromCharCode(bytes[i]);
+      }
+      Streamlit.setComponentValue({
+        name: file.name,
+        data: btoa(binary),
+        id:   Date.now(),   // monotonic id used for dedup in Python
+      });
+    };
+
+    reader.onerror = function () {
+      Streamlit.setComponentValue({ error: "read_error", name: file.name });
+    };
+
+    reader.readAsArrayBuffer(file);
+  }
+
+  // ── Attach listeners to parent document ─────────────────────────────────────
+  parentDoc.addEventListener("dragenter", onDragEnter);
+  parentDoc.addEventListener("dragleave", onDragLeave);
+  parentDoc.addEventListener("dragover",  onDragOver);
+  parentDoc.addEventListener("drop",      onDrop);
+
+  // ── Streamlit lifecycle ──────────────────────────────────────────────────────
+  Streamlit.events.addEventListener(Streamlit.RENDER_EVENT, function () {
+    Streamlit.setFrameHeight(0);
+  });
+  Streamlit.setComponentReady();
+})();
+</script>
+</body>
+</html>
