@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mini_coding_agent_explained.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="minicodingagentpy--a-beginners-deep-dive">mini_coding_agent.py — A Beginner's Deep Dive</h1>
+<blockquote>
+<p><strong>Who this is for:</strong> Python beginners who want to understand how an AI &quot;coding agent&quot; works from the inside out. You should be comfortable reading Python, but you don't need any prior AI or ML experience.</p>
+</blockquote>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#1-what-is-a-coding-agent">What is a Coding Agent?</a></li>
+<li><a href="#2-big-picture-the-six-components">Big Picture: The Six Components</a></li>
+<li><a href="#3-component-walkthroughs">Component Walkthroughs</a>
+<ul>
+<li><a href="#3a-workspace-context--workspacecontext-lines-92160">3a. Workspace Context</a></li>
+<li><a href="#3b-prompt-shaping--build_prefix-memory_text-prompt-lines-334440">3b. Prompt Shaping</a></li>
+<li><a href="#3c-tools--permissions--build_tools-run_tool-validate_tool-approve-lines-283625">3c. Tools &amp; Permissions</a></li>
+<li><a href="#3d-context-reduction--clip-history_text-lines-7175-398422">3d. Context Reduction</a></li>
+<li><a href="#3e-session-memory--the-agent-loop--sessionstore-record-note_tool-ask-lines-165503">3e. Session Memory &amp; The Agent Loop</a></li>
+<li><a href="#3f-delegation--tool_delegate-lines-859878">3f. Delegation</a></li>
+</ul>
+</li>
+<li><a href="#4-full-end-to-end-example">Full End-to-End Example</a></li>
+<li><a href="#5-key-design-decisions">Key Design Decisions</a></li>
+<li><a href="#6-glossary-for-beginners">Glossary for Beginners</a></li>
+</ol>
+<hr>
+<h2 id="1-what-is-a-coding-agent">1. What is a Coding Agent?</h2>
+<p>A regular <strong>chatbot</strong> answers questions. You send a message, it sends back text. That's it.</p>
+<p>A <strong>coding agent</strong> is different. It can <em>take actions</em> — read files, run commands, write code — and it keeps looping until the task is done. Think of it like the difference between asking a friend &quot;how do I sort a list?&quot; versus hiring a contractor who actually goes and sorts the list for you.</p>
+<p>The three things that make an agent an agent:</p>
+<pre class="hljs"><code><div>  You (user)
+      |
+      v
+  [Agent] &lt;------- has TOOLS (read files, run shell, write code)
+      |
+      v
+  [AI Model] &lt;---- the &quot;brain&quot; that decides what to do next
+      |
+      v
+  Tool result fed back to model → loop until done
+</div></code></pre>
+<p>The key insight: <strong>the AI model doesn't have to know everything — it just has to know which tool to call next.</strong> The agent runs that tool and shows the result back to the model. This Think → Act → Observe cycle repeats until the model says &quot;I'm done.&quot;</p>
+<hr>
+<h2 id="2-big-picture-the-six-components">2. Big Picture: The Six Components</h2>
+<p>The file is organized around <strong>six distinct responsibilities</strong>, documented at <a href="mini_coding_agent.py#L56-L63">mini_coding_agent.py:56-63</a>:</p>
+<pre class="hljs"><code><div># 1) Live Repo Context         → WorkspaceContext
+# 2) Prompt Shape And Cache    → build_prefix, memory_text, prompt
+# 3) Structured Tools          → build_tools, run_tool, validate_tool, approve
+# 4) Context Reduction         → clip, history_text
+# 5) Transcripts &amp; Memory      → SessionStore, record, note_tool, ask
+# 6) Delegation                → tool_delegate
+</div></code></pre>
+<p>Here's how they interact:</p>
+<pre class="hljs"><code><div>┌──────────────────────────────────────────────────────────────┐
+│                         MiniAgent                            │
+│                                                              │
+│  [1] WorkspaceContext ──► [2] build_prefix()                 │
+│           (git info)          (system prompt)                │
+│                                                              │
+│  [4] clip/history_text ──► [2] prompt()                      │
+│      (shrink old history)      (full prompt = prefix +       │
+│                                 memory + history + request)  │
+│                                                              │
+│  [2] prompt ──► OpenAI API ──► raw response text             │
+│                                                              │
+│  parse() ──► [3] run_tool() ──► result                       │
+│                 (validate, approve, execute)                  │
+│                                                              │
+│  [5] record() ──► saves to JSON session file                 │
+│      note_tool() ──► updates working memory                  │
+│                                                              │
+│  [6] tool_delegate() ──► creates child MiniAgent             │
+└──────────────────────────────────────────────────────────────┘
+</div></code></pre>
+<hr>
+<h2 id="3-component-walkthroughs">3. Component Walkthroughs</h2>
+<hr>
+<h3 id="3a-workspace-context--workspacecontext-lines-92%E2%80%93160">3a. Workspace Context — <code>WorkspaceContext</code> (<a href="mini_coding_agent.py#L92-L160">lines 92–160</a>)</h3>
+<h4 id="what-it-is">What it is</h4>
+<p>Before the agent can help you, it needs to <em>know where it is</em>. The <code>WorkspaceContext</code> class collects information about your git repository and formats it as text that gets injected into the AI's instructions.</p>
+<p>Think of it like a new employee's onboarding document: &quot;You're working in the <code>feature/auth</code> branch. The last 5 commits were X, Y, Z. The README says this project is a web API.&quot;</p>
+<h4 id="the-code">The code</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lines 102–140</span>
+<span class="hljs-meta">@classmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build</span><span class="hljs-params">(cls, cwd)</span>:</span>
+    cwd = Path(cwd).resolve()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">git</span><span class="hljs-params">(args, fallback=<span class="hljs-string">""</span>)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            result = subprocess.run(
+                [<span class="hljs-string">"git"</span>, *args], cwd=cwd, capture_output=<span class="hljs-literal">True</span>,
+                text=<span class="hljs-literal">True</span>, check=<span class="hljs-literal">True</span>, timeout=<span class="hljs-number">5</span>,
+            )
+            <span class="hljs-keyword">return</span> result.stdout.strip() <span class="hljs-keyword">or</span> fallback
+        <span class="hljs-keyword">except</span> Exception:
+            <span class="hljs-keyword">return</span> fallback   <span class="hljs-comment"># ← silently handles non-git directories</span>
+
+    repo_root = Path(git([<span class="hljs-string">"rev-parse"</span>, <span class="hljs-string">"--show-toplevel"</span>], str(cwd))).resolve()
+    <span class="hljs-comment"># ... reads README, pyproject.toml, AGENTS.md ...</span>
+    <span class="hljs-keyword">return</span> cls(
+        branch=git([<span class="hljs-string">"branch"</span>, <span class="hljs-string">"--show-current"</span>], <span class="hljs-string">"-"</span>) <span class="hljs-keyword">or</span> <span class="hljs-string">"-"</span>,
+        status=clip(git([<span class="hljs-string">"status"</span>, <span class="hljs-string">"--short"</span>], <span class="hljs-string">"clean"</span>) <span class="hljs-keyword">or</span> <span class="hljs-string">"clean"</span>, <span class="hljs-number">1500</span>),
+        recent_commits=[line <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> git([<span class="hljs-string">"log"</span>, <span class="hljs-string">"--oneline"</span>, <span class="hljs-string">"-5"</span>]).splitlines() <span class="hljs-keyword">if</span> line],
+        <span class="hljs-comment"># ...</span>
+    )
+</div></code></pre>
+<p><strong>What gets collected:</strong></p>
+<ul>
+<li>Current directory and repository root</li>
+<li>Current branch name and default branch</li>
+<li>Git status (which files are modified)</li>
+<li>Last 5 commit messages</li>
+<li>Content of <code>README.md</code>, <code>AGENTS.md</code>, <code>pyproject.toml</code>, <code>package.json</code> (up to 1200 chars each)</li>
+</ul>
+<p>The <code>.text()</code> method (<a href="mini_coding_agent.py#L142">line 142</a>) formats this into a block of text appended to the system prompt.</p>
+<h4 id="why-it-matters">Why it matters</h4>
+<p>Without this, the AI would have to guess what project it's in. With this, it knows your branch, your recent changes, and what the project does — before you even type a message.</p>
+<hr>
+<h3 id="3b-prompt-shaping--buildprefix-memorytext-prompt-lines-334%E2%80%93440">3b. Prompt Shaping — <code>build_prefix</code>, <code>memory_text</code>, <code>prompt</code> (<a href="mini_coding_agent.py#L334-L440">lines 334–440</a>)</h3>
+<h4 id="what-it-is">What it is</h4>
+<p>The <strong>prompt</strong> is what gets sent to the AI model on every step. This component assembles the full prompt from four layers:</p>
+<pre class="hljs"><code><div>┌────────────────────────────────────────────┐
+│  LAYER 1: System prefix (static)           │
+│  - Rules (&quot;use tools instead of guessing&quot;) │
+│  - List of available tools                 │
+│  - Valid response examples                 │
+│  - Workspace context (git info)            │
+├────────────────────────────────────────────┤
+│  LAYER 2: Memory (dynamic)                 │
+│  - Current task                            │
+│  - Recently accessed files                 │
+│  - Short notes from recent steps           │
+├────────────────────────────────────────────┤
+│  LAYER 3: Conversation history (dynamic)   │
+│  - All tool calls and results so far       │
+│  - All previous assistant responses        │
+├────────────────────────────────────────────┤
+│  LAYER 4: Current user request             │
+└────────────────────────────────────────────┘
+</div></code></pre>
+<h4 id="the-code">The code</h4>
+<p><strong><code>build_prefix()</code></strong> (<a href="mini_coding_agent.py#L334">line 334</a>) — builds the static system instructions:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lines 351–381 (simplified)</span>
+<span class="hljs-keyword">return</span> textwrap.dedent(<span class="hljs-string">f"""\
+    You are Mini-Coding-Agent...
+
+    Rules:
+    - Use tools instead of guessing about the workspace.
+    - Return exactly one &lt;tool&gt;...&lt;/tool&gt; or one &lt;final&gt;...&lt;/final&gt;.
+    ...
+
+    Tools:
+    <span class="hljs-subst">{tool_text}</span>   ← auto-generated list of all available tools
+
+    Valid response examples:
+    <span class="hljs-subst">{examples}</span>    ← shows the AI exactly what format to use
+
+    <span class="hljs-subst">{self.workspace.text()}</span>  ← git context injected here
+    """</span>)
+</div></code></pre>
+<p><strong><code>memory_text()</code></strong> (<a href="mini_coding_agent.py#L383">line 383</a>):</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">memory_text</span><span class="hljs-params">(self)</span>:</span>
+    memory = self.session[<span class="hljs-string">"memory"</span>]
+    <span class="hljs-keyword">return</span> <span class="hljs-string">f"""\
+    Memory:
+    - task: <span class="hljs-subst">{memory[<span class="hljs-string">'task'</span>] <span class="hljs-keyword">or</span> <span class="hljs-string">"-"</span>}</span>
+    - files: <span class="hljs-subst">{<span class="hljs-string">", "</span>.join(memory[<span class="hljs-string">"files"</span>]) <span class="hljs-keyword">or</span> <span class="hljs-string">"-"</span>}</span>
+    - notes:
+      <span class="hljs-subst">{... memory[<span class="hljs-string">"notes"</span>] ...}</span>
+    """</span>
+</div></code></pre>
+<p><strong><code>prompt()</code></strong> (<a href="mini_coding_agent.py#L427">line 427</a>) — assembles all four layers:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prompt</span><span class="hljs-params">(self, user_message)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">f"""\
+    <span class="hljs-subst">{self.prefix}</span>          ← Layer 1 (static, built once)
+
+    <span class="hljs-subst">{self.memory_text()}</span>   ← Layer 2 (changes as agent works)
+
+    Transcript:
+    <span class="hljs-subst">{self.history_text()}</span>  ← Layer 3 (grows each step)
+
+    Current user request:
+    <span class="hljs-subst">{user_message}</span>         ← Layer 4 (the original task)
+    """</span>
+</div></code></pre>
+<h4 id="why-it-matters">Why it matters</h4>
+<p>The AI model has no persistent memory between API calls — <strong>every call starts fresh</strong>. The only way the model &quot;remembers&quot; what happened is by reading it in the prompt. This component is responsible for packaging everything the model needs to know into one big text block.</p>
+<hr>
+<h3 id="3c-tools--permissions--buildtools-runtool-validatetool-approve-lines-283%E2%80%93625">3c. Tools &amp; Permissions — <code>build_tools</code>, <code>run_tool</code>, <code>validate_tool</code>, <code>approve</code> (<a href="mini_coding_agent.py#L283-L625">lines 283–625</a>)</h3>
+<h4 id="what-it-is">What it is</h4>
+<p>Tools are the agent's <em>hands</em>. This component defines what the agent can do, validates that tool calls are safe, and asks for human approval before doing anything risky.</p>
+<h4 id="the-7-tools">The 7 tools</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lines 283–329</span>
+</div></code></pre>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Safe?</th>
+<th>Purpose</th>
+<th>Key args</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_files</code></td>
+<td>Safe</td>
+<td>List files in a directory</td>
+<td><code>path='.'</code></td>
+</tr>
+<tr>
+<td><code>read_file</code></td>
+<td>Safe</td>
+<td>Read lines from a file</td>
+<td><code>path</code>, <code>start=1</code>, <code>end=200</code></td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>Safe</td>
+<td>Search code (uses ripgrep if available)</td>
+<td><code>pattern</code>, <code>path='.'</code></td>
+</tr>
+<tr>
+<td><code>delegate</code></td>
+<td>Safe</td>
+<td>Ask a child agent to investigate</td>
+<td><code>task</code>, <code>max_steps=3</code></td>
+</tr>
+<tr>
+<td><code>run_shell</code></td>
+<td><strong>Risky</strong></td>
+<td>Run any shell command</td>
+<td><code>command</code>, <code>timeout=20</code></td>
+</tr>
+<tr>
+<td><code>write_file</code></td>
+<td><strong>Risky</strong></td>
+<td>Create or overwrite a file</td>
+<td><code>path</code>, <code>content</code></td>
+</tr>
+<tr>
+<td><code>patch_file</code></td>
+<td><strong>Risky</strong></td>
+<td>Replace one exact block of text in a file</td>
+<td><code>path</code>, <code>old_text</code>, <code>new_text</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="tool-execution-flow">Tool execution flow</h4>
+<p>When the model asks to use a tool, this is the exact sequence (<a href="mini_coding_agent.py#L508-L527">lines 508–527</a>):</p>
+<pre class="hljs"><code><div>Model says: &lt;tool&gt;{&quot;name&quot;:&quot;write_file&quot;,&quot;args&quot;:{...}}&lt;/tool&gt;
+                          │
+                          ▼
+              1. Is this a known tool?
+                 ├─ No  → return error message
+                 └─ Yes ↓
+                          │
+                          ▼
+              2. validate_tool(name, args)
+                 ├─ Invalid args → return error + example
+                 └─ Valid ↓
+                          │
+                          ▼
+              3. repeated_tool_call()?
+                 ├─ Same call twice in a row → return error
+                 └─ OK ↓
+                          │
+                          ▼
+              4. Is tool risky?
+                 ├─ No  → run immediately
+                 └─ Yes → approve(name, args)
+                              ├─ &quot;ask&quot;   → prompt user [y/N]
+                              ├─ &quot;auto&quot;  → always approve
+                              └─ &quot;never&quot; → always deny
+                          │
+                          ▼
+              5. tool[&quot;run&quot;](args)  ← actual execution
+                 └─ result clipped to 4000 chars → return
+</div></code></pre>
+<h4 id="validation-examples">Validation examples</h4>
+<p><code>validate_tool()</code> (<a href="mini_coding_agent.py#L548">line 548</a>) does per-tool checks before running anything:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># patch_file must find old_text exactly once (lines 591–604)</span>
+<span class="hljs-keyword">if</span> name == <span class="hljs-string">"patch_file"</span>:
+    text = path.read_text(encoding=<span class="hljs-string">"utf-8"</span>)
+    count = text.count(old_text)
+    <span class="hljs-keyword">if</span> count != <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">f"old_text must occur exactly once, found <span class="hljs-subst">{count}</span>"</span>)
+</div></code></pre>
+<p>This prevents accidents like replacing the wrong occurrence.</p>
+<h4 id="approval-policy">Approval policy</h4>
+<pre class="hljs"><code><div><span class="hljs-comment"># Lines 614–625</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">approve</span><span class="hljs-params">(self, name, args)</span>:</span>
+    <span class="hljs-keyword">if</span> self.read_only:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>               <span class="hljs-comment"># child agents: always denied</span>
+    <span class="hljs-keyword">if</span> self.approval_policy == <span class="hljs-string">"auto"</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>                <span class="hljs-comment"># dangerous: no human check</span>
+    <span class="hljs-keyword">if</span> self.approval_policy == <span class="hljs-string">"never"</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>               <span class="hljs-comment"># testing mode</span>
+    <span class="hljs-comment"># Default "ask": prompt the human</span>
+    answer = input(<span class="hljs-string">f"approve <span class="hljs-subst">{name}</span> <span class="hljs-subst">{json.dumps(args)}</span>? [y/N] "</span>)
+    <span class="hljs-keyword">return</span> answer.strip().lower() <span class="hljs-keyword">in</span> {<span class="hljs-string">"y"</span>, <span class="hljs-string">"yes"</span>}
+</div></code></pre>
+<p><strong>Run with <code>--approval auto</code></strong> and the agent acts completely on its own. <strong>Run with <code>--approval ask</code></strong> (the default) and every file write and shell command needs your thumbs up.</p>
+<h4 id="path-security">Path security</h4>
+<p>(<a href="mini_coding_agent.py#L734-L752">Lines 734–752</a>) Every file path is resolved and checked to make sure it stays inside the workspace root. The model can't escape with tricks like <code>../../../etc/passwd</code>.</p>
+<hr>
+<h3 id="3d-context-reduction--clip-historytext-lines-71%E2%80%9375-398%E2%80%93422">3d. Context Reduction — <code>clip</code>, <code>history_text</code> (<a href="mini_coding_agent.py#L71-L75">lines 71–75</a>, <a href="mini_coding_agent.py#L398-L422">398–422</a>)</h3>
+<h4 id="the-problem">The problem</h4>
+<p>AI models have a <strong>token limit</strong> — they can only read so much text at once. Conversations grow longer with every tool call, so older history must be compressed to make room for new information.</p>
+<h4 id="two-strategies">Two strategies</h4>
+<p><strong><code>clip(text, limit=4000)</code></strong> (<a href="mini_coding_agent.py#L71">line 71</a>) — hard truncation with a note:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clip</span><span class="hljs-params">(text, limit=MAX_TOOL_OUTPUT)</span>:</span>
+    text = str(text)
+    <span class="hljs-keyword">if</span> len(text) &lt;= limit:
+        <span class="hljs-keyword">return</span> text
+    <span class="hljs-keyword">return</span> text[:limit] + <span class="hljs-string">f"\n...[truncated <span class="hljs-subst">{len(text) - limit}</span> chars]"</span>
+</div></code></pre>
+<p>Used on every tool output so one large file listing can't flood the prompt.</p>
+<p><strong><code>history_text()</code></strong> (<a href="mini_coding_agent.py#L398">line 398</a>) — smart compression of the conversation transcript:</p>
+<pre class="hljs"><code><div>recent_start = max(<span class="hljs-number">0</span>, len(history) - <span class="hljs-number">6</span>)  <span class="hljs-comment"># last 6 items = "recent"</span>
+<span class="hljs-keyword">for</span> index, item <span class="hljs-keyword">in</span> enumerate(history):
+    recent = index &gt;= recent_start
+    <span class="hljs-keyword">if</span> item[<span class="hljs-string">"role"</span>] == <span class="hljs-string">"tool"</span>:
+        limit = <span class="hljs-number">900</span> <span class="hljs-keyword">if</span> recent <span class="hljs-keyword">else</span> <span class="hljs-number">180</span>     <span class="hljs-comment"># ← recent = full detail</span>
+        ...                                <span class="hljs-comment">#   old    = heavily shortened</span>
+</div></code></pre>
+<p><strong>The algorithm:</strong></p>
+<ul>
+<li>Last 6 history items: kept with up to 900 characters each</li>
+<li>Older items: compressed to 180–220 characters each</li>
+<li>Duplicate <code>read_file</code> calls on the same file: deduplicated entirely</li>
+<li>Final result: clipped to <code>MAX_HISTORY</code> = 12,000 characters total</li>
+</ul>
+<h4 id="why-it-matters">Why it matters</h4>
+<p>Without this, a long session would eventually exceed the model's limit and crash. With it, the agent can work on large tasks over many steps without running out of context.</p>
+<hr>
+<h3 id="3e-session-memory--the-agent-loop--sessionstore-record-notetool-ask-lines-165%E2%80%93503">3e. Session Memory &amp; The Agent Loop — <code>SessionStore</code>, <code>record</code>, <code>note_tool</code>, <code>ask</code> (<a href="mini_coding_agent.py#L165-L503">lines 165–503</a>)</h3>
+<h4 id="session-persistence">Session persistence</h4>
+<p><code>SessionStore</code> (<a href="mini_coding_agent.py#L165">line 165</a>) saves the entire conversation to a JSON file after every step:</p>
+<pre class="hljs"><code><div>.mini-coding-agent/
+  sessions/
+    20240406-142033-a1b2c3.json   ← one file per session
+</div></code></pre>
+<p>The session JSON looks like:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"20240406-142033-a1b2c3"</span>,
+  <span class="hljs-attr">"created_at"</span>: <span class="hljs-string">"2024-04-06T14:20:33Z"</span>,
+  <span class="hljs-attr">"workspace_root"</span>: <span class="hljs-string">"/path/to/repo"</span>,
+  <span class="hljs-attr">"history"</span>: [
+    {<span class="hljs-attr">"role"</span>: <span class="hljs-string">"user"</span>,      <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Create a test file"</span>, <span class="hljs-attr">"created_at"</span>: <span class="hljs-string">"..."</span>},
+    {<span class="hljs-attr">"role"</span>: <span class="hljs-string">"tool"</span>,      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"list_files"</span>, <span class="hljs-attr">"args"</span>: {<span class="hljs-attr">"path"</span>: <span class="hljs-string">"."</span>}, <span class="hljs-attr">"content"</span>: <span class="hljs-string">"..."</span>, <span class="hljs-attr">"created_at"</span>: <span class="hljs-string">"..."</span>},
+    {<span class="hljs-attr">"role"</span>: <span class="hljs-string">"assistant"</span>, <span class="hljs-attr">"content"</span>: <span class="hljs-string">"I've created test_example.py"</span>, <span class="hljs-attr">"created_at"</span>: <span class="hljs-string">"..."</span>}
+  ],
+  <span class="hljs-attr">"memory"</span>: {
+    <span class="hljs-attr">"task"</span>: <span class="hljs-string">"Create a test file"</span>,
+    <span class="hljs-attr">"files"</span>: [<span class="hljs-string">"test_example.py"</span>],
+    <span class="hljs-attr">"notes"</span>: [<span class="hljs-string">"list_files: [F] README.md [F] mini_coding_ag..."</span>]
+  }
+}
+</div></code></pre>
+<p>Resume any session with <code>--resume latest</code> or <code>--resume &lt;session-id&gt;</code>.</p>
+<h4 id="the-agent-loop--ask-line-457">The agent loop — <code>ask()</code> (<a href="mini_coding_agent.py#L457">line 457</a>)</h4>
+<p>This is the <strong>heart of the agent</strong>. Here's the pseudocode:</p>
+<pre class="hljs"><code><div>ask(user_message):
+    record user message in history
+    set memory.task = user_message  (if first message)
+
+    loop up to max_steps times:
+        full_prompt = prefix + memory + history + user_message
+        raw_response = model.complete(full_prompt)
+
+        kind, payload = parse(raw_response)
+
+        if kind == &quot;tool&quot;:
+            result = run_tool(payload[&quot;name&quot;], payload[&quot;args&quot;])
+            record tool result in history
+            update memory with tool info
+            continue loop  ← model gets another turn
+
+        if kind == &quot;retry&quot;:
+            record error hint in history
+            continue loop  ← model tries again with the hint
+
+        if kind == &quot;final&quot;:
+            record final answer in history
+            return final answer  ← DONE
+
+    return &quot;Stopped after reaching the step limit&quot;
+</div></code></pre>
+<p>In actual code (<a href="mini_coding_agent.py#L467-L496">lines 467–496</a>):</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">while</span> tool_steps &lt; self.max_steps <span class="hljs-keyword">and</span> attempts &lt; max_attempts:
+    attempts += <span class="hljs-number">1</span>
+    raw = self.model_client.complete(self.prompt(user_message), self.max_new_tokens)
+    kind, payload = self.parse(raw)
+
+    <span class="hljs-keyword">if</span> kind == <span class="hljs-string">"tool"</span>:
+        tool_steps += <span class="hljs-number">1</span>
+        name = payload.get(<span class="hljs-string">"name"</span>, <span class="hljs-string">""</span>)
+        args = payload.get(<span class="hljs-string">"args"</span>, {})
+        result = self.run_tool(name, args)
+        self.record({<span class="hljs-string">"role"</span>: <span class="hljs-string">"tool"</span>, <span class="hljs-string">"name"</span>: name, <span class="hljs-string">"args"</span>: args, <span class="hljs-string">"content"</span>: result, ...})
+        self.note_tool(name, args, result)
+        <span class="hljs-keyword">continue</span>
+
+    <span class="hljs-keyword">if</span> kind == <span class="hljs-string">"retry"</span>:
+        self.record({<span class="hljs-string">"role"</span>: <span class="hljs-string">"assistant"</span>, <span class="hljs-string">"content"</span>: payload, ...})
+        <span class="hljs-keyword">continue</span>
+
+    final = (payload <span class="hljs-keyword">or</span> raw).strip()
+    self.record({<span class="hljs-string">"role"</span>: <span class="hljs-string">"assistant"</span>, <span class="hljs-string">"content"</span>: final, ...})
+    <span class="hljs-keyword">return</span> final
+</div></code></pre>
+<h4 id="response-parsing--parse-line-628">Response parsing — <code>parse()</code> (<a href="mini_coding_agent.py#L628">line 628</a>)</h4>
+<p>The model returns plain text. The agent looks for special tags:</p>
+<pre class="hljs"><code><div>&lt;tool&gt;{&quot;name&quot;:&quot;list_files&quot;,&quot;args&quot;:{&quot;path&quot;:&quot;.&quot;}}&lt;/tool&gt;    ← JSON-style tool call
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">tool</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"write_file"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"hello.py"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>print("hello")<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tool</span>&gt;</span>                                                    ← XML-style (good for multi-line)
+</div></code></pre>
+<pre class="hljs"><code><div>&lt;final&gt;I've created hello.py with a print statement.&lt;/final&gt;   ← done
+</div></code></pre>
+<p>The parser returns one of three outcomes:</p>
+<ul>
+<li><code>(&quot;tool&quot;, {&quot;name&quot;: ..., &quot;args&quot;: {...}})</code> — run a tool</li>
+<li><code>(&quot;retry&quot;, &quot;error hint message&quot;)</code> — model sent garbled output, try again</li>
+<li><code>(&quot;final&quot;, &quot;the answer&quot;)</code> — task complete, return to user</li>
+</ul>
+<hr>
+<h3 id="3f-delegation--tooldelegate-lines-859%E2%80%93878">3f. Delegation — <code>tool_delegate</code> (<a href="mini_coding_agent.py#L859-L878">lines 859–878</a>)</h3>
+<h4 id="what-it-is">What it is</h4>
+<p>The <code>delegate</code> tool lets the main agent spawn a <strong>child agent</strong> to investigate something. The child is read-only and can't write files or run commands. Think of it like a senior engineer asking a junior to &quot;go read that module and summarize it.&quot;</p>
+<h4 id="the-code">The code</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tool_delegate</span><span class="hljs-params">(self, args)</span>:</span>
+    task = str(args.get(<span class="hljs-string">"task"</span>, <span class="hljs-string">""</span>)).strip()
+    child = MiniAgent(
+        model_client=self.model_client,
+        workspace=self.workspace,
+        session_store=self.session_store,
+        approval_policy=<span class="hljs-string">"never"</span>,     <span class="hljs-comment"># ← risky tools auto-denied</span>
+        max_steps=int(args.get(<span class="hljs-string">"max_steps"</span>, <span class="hljs-number">3</span>)),
+        depth=self.depth + <span class="hljs-number">1</span>,        <span class="hljs-comment"># ← depth counter increases</span>
+        max_depth=self.max_depth,
+        read_only=<span class="hljs-literal">True</span>,              <span class="hljs-comment"># ← can't write anything</span>
+    )
+    child.session[<span class="hljs-string">"memory"</span>][<span class="hljs-string">"task"</span>] = task
+    child.session[<span class="hljs-string">"memory"</span>][<span class="hljs-string">"notes"</span>] = [clip(self.history_text(), <span class="hljs-number">300</span>)]  <span class="hljs-comment"># ← parent context shared</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"delegate_result:\n"</span> + child.ask(task)
+</div></code></pre>
+<h4 id="safety-guardrails">Safety guardrails</h4>
+<table>
+<thead>
+<tr>
+<th>Guardrail</th>
+<th>How it works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Read-only</strong></td>
+<td><code>read_only=True</code> causes <code>approve()</code> to always return <code>False</code></td>
+</tr>
+<tr>
+<td><strong>Depth limit</strong></td>
+<td><code>depth &gt;= max_depth</code> → <code>delegate</code> tool is not added to child's tools (<a href="mini_coding_agent.py#L322">line 322</a>)</td>
+</tr>
+<tr>
+<td><strong>Step limit</strong></td>
+<td>Child gets <code>max_steps=3</code> (default), can't run forever</td>
+</tr>
+<tr>
+<td><strong>Auto-deny risky</strong></td>
+<td><code>approval_policy=&quot;never&quot;</code> blocks <code>run_shell</code>, <code>write_file</code>, <code>patch_file</code></td>
+</tr>
+</tbody>
+</table>
+<p>This prevents infinite recursion: a child cannot create grandchildren.</p>
+<hr>
+<h2 id="4-full-end-to-end-example">4. Full End-to-End Example</h2>
+<p><strong>Command:</strong> <code>python mini_coding_agent.py &quot;Create a hello world script&quot;</code></p>
+<p><strong>Step 1 — Startup</strong> (<a href="mini_coding_agent.py#L924-L958">lines 924–958</a>)</p>
+<pre class="hljs"><code><div>build_agent(args):
+  load_dotenv(&quot;.env&quot;)                        ← reads OPENAI_API_KEY
+  workspace = WorkspaceContext.build(&quot;.&quot;)    ← runs git commands
+  store = SessionStore(&quot;.mini-coding-agent/sessions&quot;)
+  model = OpenAIModelClient(&quot;gpt-4o-mini&quot;, api_key, ...)
+  agent = MiniAgent(model, workspace, store, approval_policy=&quot;ask&quot;)
+</div></code></pre>
+<p>Welcome screen prints. Session ID generated: <code>20240406-142033-a1b2c3</code>.</p>
+<hr>
+<p><strong>Step 2 — <code>ask(&quot;Create a hello world script&quot;)</code> begins</strong> (<a href="mini_coding_agent.py#L457">line 457</a>)</p>
+<ul>
+<li><code>memory[&quot;task&quot;]</code> = <code>&quot;Create a hello world script&quot;</code></li>
+<li>Record <code>{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Create a hello world script&quot;}</code></li>
+<li>Enter loop</li>
+</ul>
+<hr>
+<p><strong>Step 3 — Iteration 1: Model decides to look around first</strong></p>
+<p>Prompt sent to OpenAI includes:</p>
+<pre class="hljs"><code><div>You are Mini-Coding-Agent...
+[tools listed]
+[git context: branch main, last commit &quot;initial commit&quot;]
+
+Memory:
+- task: Create a hello world script
+- files: -
+- notes: - none
+
+Transcript:
+- empty
+
+Current user request:
+Create a hello world script
+</div></code></pre>
+<p>Model responds:</p>
+<pre class="hljs"><code><div>&lt;tool&gt;{&quot;name&quot;:&quot;list_files&quot;,&quot;args&quot;:{&quot;path&quot;:&quot;.&quot;}}&lt;/tool&gt;
+</div></code></pre>
+<ul>
+<li><code>parse()</code> → <code>(&quot;tool&quot;, {&quot;name&quot;: &quot;list_files&quot;, &quot;args&quot;: {&quot;path&quot;: &quot;.&quot;}})</code></li>
+<li><code>run_tool(&quot;list_files&quot;, {&quot;path&quot;: &quot;.&quot;})</code> → <code>&quot;[F] README.md\n[F] requirements.txt&quot;</code></li>
+<li>Record tool result in history</li>
+<li><code>note_tool()</code> updates memory: <code>notes = [&quot;list_files: [F] README.md [F] requireme...&quot;]</code></li>
+</ul>
+<hr>
+<p><strong>Step 4 — Iteration 2: Model writes the file</strong></p>
+<p>Prompt now includes the <code>list_files</code> result in the transcript. Model responds:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">tool</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"write_file"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"hello.py"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>print("Hello, world!")
+<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tool</span>&gt;</span>
+</div></code></pre>
+<ul>
+<li><code>parse()</code> → <code>(&quot;tool&quot;, {&quot;name&quot;: &quot;write_file&quot;, &quot;args&quot;: {&quot;path&quot;: &quot;hello.py&quot;, &quot;content&quot;: &quot;print(...)&quot;}})</code></li>
+<li><code>validate_tool()</code> → content exists, path is inside workspace ✓</li>
+<li><code>approve()</code> → prints:<pre class="hljs"><code><div>approve write_file {&quot;content&quot;: &quot;print(\&quot;Hello, world!\&quot;)\n&quot;, &quot;path&quot;: &quot;hello.py&quot;}? [y/N]
+</div></code></pre>
+You type <code>y</code></li>
+<li><code>tool_write_file()</code> → creates <code>hello.py</code>, returns <code>&quot;wrote hello.py (22 chars)&quot;</code></li>
+<li>Record tool result, update memory: <code>files = [&quot;hello.py&quot;]</code></li>
+</ul>
+<hr>
+<p><strong>Step 5 — Iteration 3: Model gives final answer</strong></p>
+<p>Prompt includes both tool results. Model responds:</p>
+<pre class="hljs"><code><div>&lt;final&gt;I've created hello.py with a simple Hello World print statement. Run it with: python hello.py&lt;/final&gt;
+</div></code></pre>
+<ul>
+<li><code>parse()</code> → <code>(&quot;final&quot;, &quot;I've created hello.py...&quot;)</code></li>
+<li>Record <code>{&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;I've created hello.py...&quot;}</code></li>
+<li>Return the final answer</li>
+</ul>
+<hr>
+<p><strong>Output you see:</strong></p>
+<pre class="hljs"><code><div>I've created hello.py with a simple Hello World print statement. Run it with: python hello.py
+</div></code></pre>
+<p>Session saved at <code>.mini-coding-agent/sessions/20240406-142033-a1b2c3.json</code>. Resume later with <code>--resume latest</code>.</p>
+<hr>
+<h2 id="5-key-design-decisions">5. Key Design Decisions</h2>
+<h3 id="single-file">Single file</h3>
+<p>The entire agent — 1035 lines — lives in one <code>.py</code> file. This is intentional: it's easier to learn when you can read from top to bottom without jumping between packages.</p>
+<h3 id="two-response-formats-json-vs-xml">Two response formats (JSON vs XML)</h3>
+<p>The model can respond with either:</p>
+<pre class="hljs"><code><div>&lt;tool&gt;{<span class="hljs-attr">"name"</span>:<span class="hljs-string">"read_file"</span>,<span class="hljs-attr">"args"</span>:{<span class="hljs-attr">"path"</span>:<span class="hljs-string">"README.md"</span>}}&lt;/tool&gt;
+</div></code></pre>
+<p>or</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">tool</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"write_file"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"hello.py"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">content</span>&gt;</span>print("hello")
+<span class="hljs-tag">&lt;/<span class="hljs-name">content</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tool</span>&gt;</span>
+</div></code></pre>
+<p>Why two? JSON is compact and machine-readable, but JSON strings can't easily contain newlines. XML-style works better for multi-line file content. The parser (<a href="mini_coding_agent.py#L628">line 628</a>) handles both.</p>
+<h3 id="standard-library-only-except-openai">Standard library only (except <code>openai</code>)</h3>
+<p>The only external dependency is <code>openai</code>. No <code>requests</code>, no <code>python-dotenv</code>, no <code>pydantic</code>. Even the <code>.env</code> file reader (<a href="mini_coding_agent.py#L16">line 16</a>) is hand-written in stdlib. This minimizes setup friction — <code>pip install openai</code> and you're ready.</p>
+<h3 id="workspace-isolation">Workspace isolation</h3>
+<p>No matter what path the model requests, <code>path()</code> (<a href="mini_coding_agent.py#L746">line 746</a>) resolves it relative to the repo root and verifies it stays inside. A malicious prompt trying <code>../../../etc/passwd</code> gets an error, not a file read.</p>
+<h3 id="session-persistence-after-every-step">Session persistence after every step</h3>
+<p><code>record()</code> (<a href="mini_coding_agent.py#L445">line 445</a>) writes the JSON file to disk after <em>every</em> history item. If the process crashes mid-task, you don't lose your work — just <code>--resume latest</code>.</p>
+<h3 id="bounded-memory-lists">Bounded memory lists</h3>
+<p><code>remember()</code> (<a href="mini_coding_agent.py#L272">line 272</a>) keeps memory lists at fixed maximum sizes:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@staticmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">remember</span><span class="hljs-params">(bucket, item, limit)</span>:</span>
+    <span class="hljs-keyword">if</span> item <span class="hljs-keyword">in</span> bucket:
+        bucket.remove(item)
+    bucket.append(item)
+    <span class="hljs-keyword">del</span> bucket[:-limit]    <span class="hljs-comment"># ← drop oldest if over limit</span>
+</div></code></pre>
+<p><code>files</code> maxes out at 8 entries. <code>notes</code> maxes out at 5. This prevents memory from growing unboundedly across a long session.</p>
+<hr>
+<h2 id="6-glossary-for-beginners">6. Glossary for Beginners</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agent</strong></td>
+<td>A program that uses an AI model + tools in a loop to complete tasks autonomously</td>
+</tr>
+<tr>
+<td><strong>Tool</strong></td>
+<td>A function the AI can call to take an action (read a file, run a command, etc.)</td>
+</tr>
+<tr>
+<td><strong>System Prompt</strong></td>
+<td>Instructions sent to the AI at the start of every request. Defines its role, rules, and available tools</td>
+</tr>
+<tr>
+<td><strong>Token</strong></td>
+<td>The unit AI models use to measure text length. Roughly 1 token ≈ 4 characters. Models have a maximum number of tokens they can process at once</td>
+</tr>
+<tr>
+<td><strong>Session</strong></td>
+<td>A saved conversation (history + memory) stored as a JSON file so it can be resumed later</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>A short distillation of what the agent is working on: current task, recently touched files, and recent notes</td>
+</tr>
+<tr>
+<td><strong>Delegation</strong></td>
+<td>When the main agent creates a child agent to investigate something, without giving the child the ability to modify files</td>
+</tr>
+<tr>
+<td><strong>Approval Policy</strong></td>
+<td>Controls whether the user must confirm risky tool calls: <code>ask</code> (default, prompts you), <code>auto</code> (no prompts), <code>never</code> (blocks all risky tools)</td>
+</tr>
+<tr>
+<td><strong>Context Reduction</strong></td>
+<td>The process of compressing old conversation history so it fits within the model's token limit</td>
+</tr>
+<tr>
+<td><strong>Workspace Root</strong></td>
+<td>The root of the git repository. All file operations are restricted to within this directory</td>
+</tr>
+<tr>
+<td><strong>Ripgrep (<code>rg</code>)</strong></td>
+<td>A fast code-search tool. The agent uses it for <code>search</code> if it's installed, and falls back to a slower Python implementation otherwise</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
