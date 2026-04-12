@@ -1,0 +1,32 @@
+id,number,caption,content,page,node_label
+table_1,1,"Maximum path lengths, per-layer complexity and minimum number of sequential operations for different layer types.","Layer Type | Complexity per Layer | Sequential Operations | Maximum Path Length
+Self-Attention | O(n² · d) | O(1) | O(1)
+Recurrent | O(n · d²) | O(n) | O(n)
+Convolutional | O(k · n · d²) | O(1) | O(log_k(n))
+Self-Attention (restricted) | O(r · n · d) | O(1) | O(n/r)",6,Table
+table_2,2,The Transformer achieves better BLEU scores than previous state-of-the-art models on the English-to-German and English-to-French newstest2014 tests at a fraction of the training cost.,"Model | EN-DE BLEU | EN-FR BLEU | Training Cost (FLOPs)
+ByteNet | 23.75 | - | -
+Deep-Att + PosUnk | - | 39.2 | 1.0·10^20
+GNMT + RL | 24.6 | 41.16 | 2.3·10^19
+ConvS2S | 25.16 | 40.46 | 9.6·10^18
+MoE | 26.03 | 40.56 | 2.0·10^19
+Transformer (base) | 27.3 | 38.1 | 3.3·10^18
+Transformer (big) | 28.4 | 41.0 | 2.3·10^19",8,Table
+table_3,3,Variations on the Transformer architecture. Unlisted values are identical to those of the base model.,"Model | N | d_model | d_ff | h | d_k | d_v | P_drop | eps_ls | PPL | BLEU | params
+base | 6 | 512 | 2048 | 8 | 64 | 64 | 0.1 | 0.1 | 4.92 | 25.8 | 65M
+(A) h=1 | 6 | 512 | 2048 | 1 | 512 | 512 | 0.1 | 0.1 | 5.29 | 24.9 | -
+(A) h=4 | 6 | 512 | 2048 | 4 | 128 | 128 | 0.1 | 0.1 | 5.00 | 25.5 | -
+(A) h=16 | 6 | 512 | 2048 | 16 | 32 | 32 | 0.1 | 0.1 | 4.91 | 25.8 | -
+(B) d_k=16 | 6 | 512 | 2048 | 8 | 16 | 64 | 0.1 | 0.1 | 5.01 | 25.4 | -
+(C) N=2 | 2 | 512 | 2048 | 8 | 64 | 64 | 0.1 | 0.1 | 5.29 | 24.9 | 36M
+(E) no label smooth | 6 | 512 | 2048 | 8 | 64 | 64 | 0.1 | 0.0 | 5.51 | 24.6 | -",9,Table
+table_4,4,The Transformer generalizes well to English constituency parsing (Results are on Section 23 of WSJ).,"Parser | Training | WSJ 23 F1
+Vinyals & Kaiser et al. (2014) | WSJ only, discriminative | 88.3
+Petrov et al. (2006) | WSJ only, discriminative | 90.4
+Zhu et al. (2013) | WSJ only, discriminative | 90.4
+Dyer et al. (2016) | WSJ only, discriminative | 91.7
+Transformer (4 layers) | WSJ only | 91.3
+Transformer (4 layers) | semi-supervised | 92.7
+Luong et al. (2015) | multi-task | 93.0
+Choe & Charniak (2016) | semi-supervised | 93.8
+Transformer (4 layers) | semi-supervised | 93.3",10,Table

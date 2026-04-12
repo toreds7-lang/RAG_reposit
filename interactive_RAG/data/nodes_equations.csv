@@ -1,0 +1,6 @@
+id,number,formula,description,page,node_label
+eq_1,1,"Attention(Q, K, V) = softmax(Q * K^T / sqrt(d_k)) * V","Scaled Dot-Product Attention formula. Computes attention weights by scaling dot products of queries and keys by sqrt(d_k) before softmax, then applies weights to values.",4,Equation
+eq_multihead,1b,"MultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W^O  where head_i = Attention(Q*W_i^Q, K*W_i^K, V*W_i^V)","Multi-Head Attention formula. Projects queries, keys, and values h times with different learned projections, applies attention in parallel, then concatenates and projects.",4,Equation
+eq_2,2,"FFN(x) = max(0, x*W_1 + b_1)*W_2 + b_2","Position-wise Feed-Forward Network formula. Applies two linear transformations with ReLU activation in between, identically at each position.",5,Equation
+eq_3,3,"lrate = d_model^(-0.5) * min(step_num^(-0.5), step_num * warmup_steps^(-1.5))",Learning rate schedule formula. Increases linearly for warmup_steps then decreases proportionally to inverse square root of step number.,7,Equation
+eq_pe,PE,"PE(pos, 2i) = sin(pos / 10000^(2i/d_model));  PE(pos, 2i+1) = cos(pos / 10000^(2i/d_model))","Positional Encoding formulas. Encode position using sine and cosine functions of different frequencies, allowing the model to learn to attend to relative positions.",6,Equation

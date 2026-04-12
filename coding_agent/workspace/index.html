@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테트리스 게임</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        #game-container {
+            text-align: center;
+        }
+
+        #game-canvas {
+            border: 1px solid #fff;
+            background-color: #111;
+        }
+
+        #score {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        #restart-button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas" width="300" height="600"></canvas>
+        <div id="score">점수: 0</div>
+        <button id="restart-button">재시작</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const boardWidth = 10;
+        const boardHeight = 20;
+        const board = createBoard(boardWidth, boardHeight);
+        let score = 0;
+        let currentPiece;
+        let gameOver = false;
+
+        const pieces = [
+            [[1, 1, 1, 1]], // I
+            [[1, 1], [1, 1]], // O
+            [[0, 1, 0], [1, 1, 1]], // T
+            [[0, 1, 1], [1, 1, 0]], // S
+            [[1, 1, 0], [0, 1, 1]], // Z
+            [[1, 0, 0], [1, 1, 1]], // J
+            [[0, 0, 1], [1, 1, 1]]  // L
+        ];
+
+        function init() {
+            createBoard();
+            drawBoard();
+            spawnPiece();
+            gameLoop();
+        }
+
+        function createBoard() {
+            return Array.from({ length: boardHeight }, () => Array(boardWidth).fill(0));
+        }
+
+        function drawBoard() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let r = 0; r < board.length; r++) {
+                for (let c = 0; c < board[r].length; c++) {
+                    if (board[r][c]) {
+                        ctx.fillStyle = 'white';
+                        ctx.fillRect(c * 30, r * 30, 30, 30);
+                    }
+                }
+            }
+            drawPiece(currentPiece);
+        }
+
+        function createPiece() {
+            const randomIndex = Math.floor(Math.random() * pieces.length);
+            return { shape: pieces[randomIndex], x: 3, y: 0 };
+        }
+
+        function drawPiece(piece) {
+            piece.shape.forEach((row, r) => {
+                row.forEach((value, c) => {
+                    if (value) {
+                        ctx.fillStyle = 'white';
+                        ctx.fillRect((piece.x + c) * 30, (piece.y + r) * 30, 30, 30);
+                    }
+                });
+            });
+        }
+
+        function movePiece(direction) {
+            if (!collisionCheck(direction)) {
+                currentPiece.x += direction === 'left' ? -1 : direction === 'right' ? 1 : 0;
+                currentPiece.y += direction === 'down' ? 1 : 0;
+            } else if (direction === 'down') {
+                placePiece();
+                removeLines();
+                spawnPiece();
+                checkGameOver();
+            }
+        }
+
+        function rotatePiece() {
+            const originalShape = currentPiece.shape;
+            currentPiece.shape = currentPiece.shape[0].map((_, index) => currentPiece.shape.map(row => row[index]).reverse());
+            if (collisionCheck()) {
+                currentPiece.shape = originalShape; // revert if collision
+            }
+        }
+
+        function collisionCheck(direction = '') {
+            return currentPiece.shape.some((row, r) => {
+                return row.some((value, c) => {
+                    if (value) {
+                        const newX = currentPiece.x + c + (direction === 'left' ? -1 : direction === 'right' ? 1 : 0);
+                        const newY = currentPiece.y + r + (direction === 'down' ? 1 : 0);
+                        return newX < 0 || newX >= boardWidth || newY >= boardHeight || board[newY] && board[newY][newX];
+                    }
+                    return false;
+                });
+            });
+        }
+
+        function placePiece() {
+            currentPiece.shape.forEach((row, r) => {
+                row.forEach((value, c) => {
+                    if (value) {
+                        board[currentPiece.y + r][currentPiece.x + c] = 1;
+                    }
+                });
+            });
+        }
+
+        function removeLines() {
+            let linesRemoved = 0;
+            for (let r = board.length - 1; r >= 0; r--) {
+                if (board[r].every(value => value)) {
+                    board.splice(r, 1);
+                    board.unshift(Array(boardWidth).fill(0));
+                    linesRemoved++;
+                }
+            }
+            updateScore(linesRemoved);
+        }
+
+        function updateScore(lines) {
+            score += lines * 100;
+            document.getElementById('score').innerText = `점수: ${score}`;
+        }
+
+        function gameLoop() {
+            if (!gameOver) {
+                movePiece('down');
+                drawBoard();
+                requestAnimationFrame(gameLoop);
+            }
+        }
+
+        function checkGameOver() {
+            if (currentPiece.y === 0 && collisionCheck()) {
+                gameOver = true;
+                alert('게임 오버!');
+            }
+        }
+
+        function restartGame() {
+            score = 0;
+            gameOver = false;
+            document.getElementById('score').innerText = `점수: ${score}`;
+            init();
+        }
+
+        function spawnPiece() {
+            currentPiece = createPiece();
+        }
+
+        document.getElementById('restart-button').addEventListener('click', restartGame);
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') movePiece('left');
+            else if (event.key === 'ArrowRight') movePiece('right');
+            else if (event.key === 'ArrowDown') movePiece('down');
+            else if (event.key === 'ArrowUp') rotatePiece();
+        });
+
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+from_id,from_label,relationship,to_id,to_label,description
+figure_1,Figure,ILLUSTRATES,section_3,Section,The Transformer - model architecture.
+section_3,Section,REFERENCES,figure_1,Figure,References figure_1
+figure_2,Figure,ILLUSTRATES,section_3_2,Section,(left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of se
+section_3_2,Section,REFERENCES,figure_2,Figure,References figure_2
+figure_3,Figure,ILLUSTRATES,section_3_2_2,Section,An example of the attention mechanism following long-distance dependencies in th
+section_3_2_2,Section,REFERENCES,figure_3,Figure,References figure_3
+figure_4,Figure,ILLUSTRATES,section_3_2_2,Section,"Two attention heads, also in layer 5 of 6, apparently involved in anaphora resol"
+section_3_2_2,Section,REFERENCES,figure_4,Figure,References figure_4
+figure_5,Figure,ILLUSTRATES,section_3_2_2,Section,Many of the attention heads exhibit behaviour that seems related to the structur
+section_3_2_2,Section,REFERENCES,figure_5,Figure,References figure_5
+table_1,Table,SUPPORTS,section_4,Section,"Maximum path lengths, per-layer complexity and minimum number of sequential oper"
+section_4,Section,REFERENCES,table_1,Table,References table_1
+table_2,Table,SUPPORTS,section_6_1,Section,The Transformer achieves better BLEU scores than previous state-of-the-art model
+section_6_1,Section,REFERENCES,table_2,Table,References table_2
+table_3,Table,SUPPORTS,section_6_2,Section,Variations on the Transformer architecture. Unlisted values are identical to tho
+section_6_2,Section,REFERENCES,table_3,Table,References table_3
+table_4,Table,SUPPORTS,section_6_3,Section,The Transformer generalizes well to English constituency parsing (Results are on
+section_6_3,Section,REFERENCES,table_4,Table,References table_4
+section_3_2_1,Section,INTRODUCES,eq_1,Equation,Scaled Dot-Product Attention formula. Computes attention weights by scaling dot 
+section_3_2_2,Section,INTRODUCES,eq_multihead,Equation,"Multi-Head Attention formula. Projects queries, keys, and values h times with di"
+section_3_3,Section,INTRODUCES,eq_2,Equation,Position-wise Feed-Forward Network formula. Applies two linear transformations w
+section_5_3,Section,INTRODUCES,eq_3,Equation,Learning rate schedule formula. Increases linearly for warmup_steps then decreas
+section_3_5,Section,INTRODUCES,eq_pe,Equation,Positional Encoding formulas. Encode position using sine and cosine functions of
+table_1,Table,COMPARES,section_4,Section,Compares complexity of different layer types
+table_3,Table,COMPARES,section_6,Section,Compares transformer architecture variations
