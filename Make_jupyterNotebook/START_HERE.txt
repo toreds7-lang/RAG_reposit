@@ -1,0 +1,135 @@
+================================================================================
+ LangGraph Notebook Annotator - Educational Knowledge Graph Builder
+================================================================================
+
+Welcome! This project automatically annotates Jupyter notebooks with markdown 
+comments and builds interactive knowledge graphs for educational use.
+
+QUICK START (2 minutes)
+=======================
+
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Verify env.txt has OPENAI_API_KEY=sk-proj-...
+
+3. Run the agent:
+   python agent.py --notebook practice_notebook.ipynb --output-dir output
+
+4. View results:
+   - Annotated notebook: output/annotated_notebook.ipynb
+   - Interactive graph: output/graph_interactive.html
+   - PNG visualization: output/knowledge_graph.png
+
+DOCUMENTATION
+==============
+
+Start with one of these based on your needs:
+
+[5-minute users]
+  -> QUICKSTART.md
+
+[Complete feature reference]
+  -> README.md
+
+[Architecture & design details]
+  -> PROJECT_SUMMARY.md
+
+[Project overview & file guide]
+  -> INDEX.md
+
+[What was implemented]
+  -> IMPLEMENTATION_SUMMARY.md
+
+FILE STRUCTURE
+===============
+
+agent.py                  Main entry point (run this!)
+nodes/                    Pipeline components
+  read_notebook.py        → Parse .ipynb
+  generate_comments.py    → LLM comment generation
+  annotate_notebook.py    → Inject markdown
+  build_graph.py          → Construct knowledge graph
+  export_graph.py         → Create visualizations
+
+utils/                    Extended features
+  semantic_search.py      → Natural language graph queries
+  ast_analyzer.py         → Variable dependency tracking
+  quiz_generator.py       → Auto-generate quiz questions
+  interactive_viz.py      → HTML/Cytoscape visualization
+
+output/                   Generated files (created at runtime)
+  annotated_notebook.ipynb
+  knowledge_graph.json
+  knowledge_graph.png
+  graph_interactive.html
+  ... and more
+
+NEXT STEPS
+===========
+
+1. Read QUICKSTART.md (5 min)
+2. Run agent on practice_notebook.ipynb
+3. Explore output/ directory
+4. Try semantic search example:
+   
+   from utils.semantic_search import query_graph_semantic
+   results = query_graph_semantic("visualization", "output/knowledge_graph.json")
+
+5. Run demo.py to see all features
+
+EXAMPLE USAGE
+==============
+
+# Basic
+python agent.py --notebook my_notebook.ipynb
+
+# With custom output directory
+python agent.py --notebook analysis.ipynb --output-dir docs/
+
+# Run feature showcase
+python demo.py
+
+KEY FEATURES
+=============
+
+✓ Automatic markdown comment generation using OpenAI LLM
+✓ Knowledge graph with hierarchical relationships (IS_BELONG_TO, IS_NEXT_TO)
+✓ Multiple export formats: JSON, PNG, HTML, NetworkX, Cytoscape
+✓ Semantic search over graph using natural language
+✓ Variable dependency analysis using Python AST
+✓ Auto-generated quiz questions for assessment
+✓ Interactive HTML visualization with physics layout
+
+SUPPORT
+========
+
+See QUICKSTART.md for:
+- Command reference
+- Troubleshooting guide
+- Usage examples
+- Customization tips
+
+See README.md for:
+- Complete feature documentation
+- API reference
+- Graph format specification
+- Advanced usage patterns
+
+Questions?
+- Check the docs/ section above
+- Look at demo.py for examples
+- Read docstrings in Python files
+
+READY?
+=======
+
+python agent.py --notebook practice_notebook.ipynb --output-dir output
+
+Then open: output/graph_interactive.html
+
+Happy annotating!
+
+================================================================================
+For detailed information, read QUICKSTART.md or README.md
+================================================================================

@@ -1,0 +1,177 @@
+{
+  "nodes": [
+    {
+      "id": "heading_0",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Importing Libraries",
+      "source": "# Importing Libraries\n## Essential Libraries for Data Manipulation and Visualization"
+    },
+    {
+      "id": "code_1",
+      "type": "CODE_CELL",
+      "source": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt"
+    },
+    {
+      "id": "code_2",
+      "type": "CODE_CELL",
+      "source": "# Create sample sales data\ndata = {\n    'date': pd.date_range('2024-01-01', periods=12),\n    'product': ['A', 'B', 'A', 'C', 'B', 'A', 'C', 'B', 'A', 'C', 'B', 'A'],\n    'sales': [100, 150, 120, 200, "
+    },
+    {
+      "id": "heading_3",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Creating Sample Sales Data",
+      "source": "# Creating Sample Sales Data\n## Data Structure\n### Defining Dates, Products, Sales, and Regions"
+    },
+    {
+      "id": "code_4",
+      "type": "CODE_CELL",
+      "source": "# Display basic information\nprint(\"First few rows:\")\nprint(df.head())\nprint(\"\\nDataFrame shape:\", df.shape)\nprint(\"\\nColumn info:\")\nprint(df.info())"
+    },
+    {
+      "id": "code_5",
+      "type": "CODE_CELL",
+      "source": "# Get statistical summary\nprint(df.describe())"
+    },
+    {
+      "id": "heading_6",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Displaying Basic Information",
+      "source": "# Displaying Basic Information\n## Overview of the DataFrame\n### Showing First Rows, Shape, and Column Information"
+    },
+    {
+      "id": "code_7",
+      "type": "CODE_CELL",
+      "source": "# Filter and transform data\ndf['month'] = df['date'].dt.month\ndf['quarter'] = df['date'].dt.quarter\nnorth_sales = df[df['region'] == 'North']\nprint(f\"North region sales count: {len(north_sales)}\")"
+    },
+    {
+      "id": "heading_8",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Getting Statistical Summary",
+      "source": "# Getting Statistical Summary\n## Descriptive Statistics\n### Summary of Sales Data"
+    },
+    {
+      "id": "code_9",
+      "type": "CODE_CELL",
+      "source": "# Group by product and calculate total sales\nproduct_sales = df.groupby('product')['sales'].sum().sort_values(ascending=False)\nprint(\"Total sales by product:\")\nprint(product_sales)"
+    },
+    {
+      "id": "code_10",
+      "type": "CODE_CELL",
+      "source": "# Create visualizations\nfig, axes = plt.subplots(2, 2, figsize=(12, 8))\n\n# Bar chart: sales by product\nproduct_sales.plot(kind='bar', ax=axes[0, 0], color='steelblue')\naxes[0, 0].set_title('Total Sale"
+    },
+    {
+      "id": "heading_11",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Filtering and Transforming Data",
+      "source": "# Filtering and Transforming Data\n## Adding New Columns\n### Extracting Month and Quarter\n### Filtering Sales for North Region"
+    },
+    {
+      "id": "code_12",
+      "type": "CODE_CELL",
+      "source": "# Save results to CSV\ndf.to_csv('sales_data.csv', index=False)\nproduct_sales.to_csv('product_totals.csv')\nprint(\"Data saved to CSV files\")"
+    },
+    {
+      "id": "heading_13",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Grouping Data by Product",
+      "source": "# Grouping Data by Product\n## Total Sales Calculation\n### Summarizing Sales per Product"
+    },
+    {
+      "id": "heading_14",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Creating Visualizations",
+      "source": "# Creating Visualizations\n## Setting Up Plots\n### Bar Chart for Total Sales by Product\n### Line Chart for Sales Over Time"
+    },
+    {
+      "id": "heading_15",
+      "type": "HEADING",
+      "level": 1,
+      "text": "Saving Results to CSV",
+      "source": "# Saving Results to CSV\n## Exporting Data\n### Saving DataFrames to CSV Files"
+    }
+  ],
+  "edges": [
+    {
+      "source": "code_1",
+      "target": "heading_0",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "code_2",
+      "target": "heading_0",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "heading_0",
+      "target": "heading_3",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "code_4",
+      "target": "heading_3",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "code_5",
+      "target": "heading_3",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "heading_3",
+      "target": "heading_6",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "code_7",
+      "target": "heading_6",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "heading_6",
+      "target": "heading_8",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "code_9",
+      "target": "heading_8",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "code_10",
+      "target": "heading_8",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "heading_8",
+      "target": "heading_11",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "code_12",
+      "target": "heading_11",
+      "type": "IS_BELONG_TO"
+    },
+    {
+      "source": "heading_11",
+      "target": "heading_13",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "heading_13",
+      "target": "heading_14",
+      "type": "IS_NEXT_TO"
+    },
+    {
+      "source": "heading_14",
+      "target": "heading_15",
+      "type": "IS_NEXT_TO"
+    }
+  ]
+}

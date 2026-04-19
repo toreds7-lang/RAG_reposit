@@ -1,0 +1,236 @@
+{
+  "elements": [
+    {
+      "data": {
+        "id": "heading_0",
+        "label": "Importing Libraries",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_1",
+        "label": "import pandas as pd\nimport numpy as np\nimport matp",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "code_2",
+        "label": "# Create sample sales data\ndata = {\n    'date': pd",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_3",
+        "label": "Creating Sample Sales Data",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_4",
+        "label": "# Display basic information\nprint(\"First few rows:",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "code_5",
+        "label": "# Get statistical summary\nprint(df.describe())",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_6",
+        "label": "Displaying Basic Information",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_7",
+        "label": "# Filter and transform data\ndf['month'] = df['date",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_8",
+        "label": "Getting Statistical Summary",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_9",
+        "label": "# Group by product and calculate total sales\nprodu",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "code_10",
+        "label": "# Create visualizations\nfig, axes = plt.subplots(2",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_11",
+        "label": "Filtering and Transforming Data",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_12",
+        "label": "# Save results to CSV\ndf.to_csv('sales_data.csv', ",
+        "type": "CODE_CELL"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_13",
+        "label": "Grouping Data by Product",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_14",
+        "label": "Creating Visualizations",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_15",
+        "label": "Saving Results to CSV",
+        "type": "HEADING"
+      }
+    },
+    {
+      "data": {
+        "id": "code_1_to_heading_0",
+        "source": "code_1",
+        "target": "heading_0",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_2_to_heading_0",
+        "source": "code_2",
+        "target": "heading_0",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_0_to_heading_3",
+        "source": "heading_0",
+        "target": "heading_3",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_4_to_heading_3",
+        "source": "code_4",
+        "target": "heading_3",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_5_to_heading_3",
+        "source": "code_5",
+        "target": "heading_3",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_3_to_heading_6",
+        "source": "heading_3",
+        "target": "heading_6",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_7_to_heading_6",
+        "source": "code_7",
+        "target": "heading_6",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_6_to_heading_8",
+        "source": "heading_6",
+        "target": "heading_8",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_9_to_heading_8",
+        "source": "code_9",
+        "target": "heading_8",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_10_to_heading_8",
+        "source": "code_10",
+        "target": "heading_8",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_8_to_heading_11",
+        "source": "heading_8",
+        "target": "heading_11",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "code_12_to_heading_11",
+        "source": "code_12",
+        "target": "heading_11",
+        "relation": "IS_BELONG_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_11_to_heading_13",
+        "source": "heading_11",
+        "target": "heading_13",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_13_to_heading_14",
+        "source": "heading_13",
+        "target": "heading_14",
+        "relation": "IS_NEXT_TO"
+      }
+    },
+    {
+      "data": {
+        "id": "heading_14_to_heading_15",
+        "source": "heading_14",
+        "target": "heading_15",
+        "relation": "IS_NEXT_TO"
+      }
+    }
+  ]
+}

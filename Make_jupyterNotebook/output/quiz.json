@@ -1,0 +1,50 @@
+[
+  {
+    "question": "The library _____ is commonly used for data manipulation and analysis in Python.",
+    "blank_text": "_____",
+    "answer": "pandas",
+    "cell_index": 0
+  },
+  {
+    "question": "The variable 'data' is a dictionary that contains sales data including the '_____'.",
+    "blank_text": "product",
+    "answer": "product",
+    "cell_index": 1
+  },
+  {
+    "question": "The method _____ is used to display the shape of the DataFrame.",
+    "blank_text": "_____",
+    "answer": "shape",
+    "cell_index": 2
+  },
+  {
+    "question": "The method _____ is used to get a statistical summary of a DataFrame.",
+    "blank_text": "_____",
+    "answer": "describe",
+    "cell_index": 3
+  },
+  {
+    "question": "The method _____ is used to count the number of rows in the north_sales DataFrame.",
+    "blank_text": "_____",
+    "answer": "len",
+    "cell_index": 4
+  },
+  {
+    "question": "The method _____ is used to group the DataFrame by 'product' and calculate the total sales.",
+    "blank_text": "_____",
+    "answer": "groupby",
+    "cell_index": 5
+  },
+  {
+    "question": "The method _____ is used to create a bar chart for visualizing sales by product.",
+    "blank_text": "_____",
+    "answer": "plot",
+    "cell_index": 6
+  },
+  {
+    "question": "The method _____ is used to save a DataFrame to a CSV file.",
+    "blank_text": "_____",
+    "answer": "to_csv",
+    "cell_index": 7
+  }
+]
