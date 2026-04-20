@@ -1,0 +1,219 @@
+{
+  "main": {
+    "id": "55e8c3bba2eb0642",
+    "type": "split",
+    "children": [
+      {
+        "id": "319c6c6971b06215",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5ae33de795787b93",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "그래프 뷰"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "88446a962c16bf56",
+    "type": "split",
+    "children": [
+      {
+        "id": "a22643011a96f603",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5954e4b60e9117ea",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "f1b982ac3a015d5c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "e6dfd633c34f50c7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b2e8df36ac224042",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2827006eaabef56",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "209e51cf5129b00e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "백링크"
+            }
+          },
+          {
+            "id": "91e216e2171a88a1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
+          },
+          {
+            "id": "0dfbd0721821182c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "2e4e13ac69251d45",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "68b89482e8ce24d0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "5ae33de795787b93",
+  "lastOpenFiles": [
+    "assets",
+    "agent-patterns.md",
+    "wiki/langgraph-middleware.md",
+    "state-management.md",
+    "wiki/langgraph-introduction.md",
+    "wiki/langgraph-memory.md",
+    "stategraph.md",
+    "wiki/log.md",
+    "wiki/index.md",
+    "wiki/langgraph-mcp.md",
+    "wiki/langgraph-text2cypher.md",
+    "wiki/langgraph-agent-simulation.md",
+    "wiki/langgraph-supervisor.md",
+    "wiki/langgraph-agents.md",
+    "wiki/langgraph-models.md",
+    "wiki/langgraph-building-graphs.md",
+    "wiki/quickstart-langgraph.md",
+    "generate_wiki.py.tmp.3352.1776390221850",
+    "generate_wiki.py.tmp.3352.1776390218517",
+    "generate_wiki.py.tmp.3352.1776390215274",
+    "generate_wiki.py.tmp.3352.1776390212751",
+    "generate_wiki.py",
+    "generate_wiki.py.tmp.3352.1776390204117",
+    "raw/01-LangGraph-Text2Cypher-Neo4j.ipynb",
+    "raw/01-LangGraph-Supervisor.ipynb",
+    "raw/01-LangGraph-Models.ipynb",
+    "raw/01-LangGraph-Middleware.ipynb",
+    "wiki/osaka-day-trips.md",
+    "wiki/lake-biwa.md",
+    "wiki/hiroshima-miyajima.md",
+    "wiki/open-questions.md",
+    "wiki/osaka-station-city.md",
+    "wiki/kitashinchi-district.md",
+    "wiki/shinsekai-district.md",
+    "wiki/osaka-food-culture.md",
+    "raw/Osaka Food Guide.md",
+    "무제.canvas"
+  ]
+}
