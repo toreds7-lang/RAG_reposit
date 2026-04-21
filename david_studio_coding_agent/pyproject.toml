@@ -1,0 +1,10 @@
+[project]
+name = "python-coding-agent"
+version = "0.1.0"
+description = "Step-by-step guide to building a coding agent with OpenAI"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.2.1",
+]
