@@ -1,0 +1,6 @@
+streamlit>=1.36
+streamlit-mic-recorder>=0.0.8
+openai-whisper
+langchain>=0.3
+langchain-openai>=0.2
+python-dotenv
